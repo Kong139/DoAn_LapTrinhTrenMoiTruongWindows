@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8212101D-1400-4732-B570-E7DD3672BAD6}</ProjectGuid>
+    <ProjectGuid>{8F80BBCE-8BD1-48AD-84A5-0DBAE562BD18}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>StudentManagementApp.DAL</RootNamespace>
@@ -63,6 +63,7 @@
     <Compile Include="Entities\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

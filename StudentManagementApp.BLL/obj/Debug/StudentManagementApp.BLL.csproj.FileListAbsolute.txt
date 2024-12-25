@@ -3,6 +3,9 @@ C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên
 C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\StudentManagementApp.BLL.pdb
 C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\EntityFramework.dll
 C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\StudentManagementApp.DAL.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\StudentManagementApp.DAL.pdb
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\StudentManagementApp.DAL.dll.config
 C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\EntityFramework.xml
 C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\obj\Debug\StudentManagementApp.BLL.csproj.AssemblyReference.cache

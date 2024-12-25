@@ -51,6 +51,7 @@ CREATE TABLE Student (
     StudentID VARCHAR(10) PRIMARY KEY,
     StudentName NVARCHAR(50) NOT NULL,
     Class VARCHAR(10) NOT NULL,
+	GPA FLOAT NOT NULL,
     FacultyID INT NOT NULL,
     MajorID INT,
     Birthday DATETIME NOT NULL,
@@ -58,6 +59,7 @@ CREATE TABLE Student (
     Address NVARCHAR(100) NOT NULL,
     StatusID INT NOT NULL,
     Email VARCHAR(50) NOT NULL,
+	Avatar NVARCHAR(255),
     FOREIGN KEY (FacultyID) REFERENCES Faculty(FacultyID),
     FOREIGN KEY (MajorID) REFERENCES Major(MajorID),
     FOREIGN KEY (StatusID) REFERENCES Status(StatusID)
@@ -122,4 +124,21 @@ VALUES
     ('CC', N'Chuyên cần', 1),
     ('GK', N'Giữa kỳ', 2),
     ('CK', N'Cuối kỳ', 3);
+GO
+
+--Thêm các trạng thái của sinh viên
+INSERT INTO Status (StatusName)
+VALUES
+    (N'Đang học'),
+	(N'Đình chỉ'),
+	(N'Thôi học'),
+	(N'Đã tốt nghiệp');
+GO
+
+--Thêm các sinh viên
+INSERT INTO Student (StudentID, StudentName, Class, GPA, FacultyID, MajorID, Birthday, Phone, Address, StatusID, Email)
+VALUES 
+    ('2287700011', N'Nguyễn Văn A', 'CNTT01', 0, 1, 1, '2002-05-15', '0123456789', N'41 Đường số 22, Linh Đông, Thủ Đức, Hồ Chí Minh', 1, 'nguyenvana@gmail.com'),
+    ('2287700012', N'Trần Thị B', 'NNA01', 0, 2, 4, '2001-12-20', '0987654321', N'114 Nhất Chi Mai, Phường 13, Tân Bình, Hồ Chí Minh', 1, 'tranthib@gmail.com'),
+    ('2287700013', N'Lê Văn C', 'QTKD01', 0, 3, 6, '2003-03-10', '0123344556', N'51 Đường N1, Thống Nhất, Biên Hòa, Đồng Nai', 1, 'levanc@gmail.com');
 GO

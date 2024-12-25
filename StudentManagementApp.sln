@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementApp.GUI", "StudentManagementApp.GUI\StudentManagementApp.GUI.csproj", "{0B8A92EC-D585-4459-B995-287F07FC22E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementApp.GUI", "StudentManagementApp.GUI\StudentManagementApp.GUI.csproj", "{42C24989-B170-4028-A5E3-4F001C9472C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementApp.BLL", "StudentManagementApp.BLL\StudentManagementApp.BLL.csproj", "{BF6B70BD-C408-4E30-AF80-475F3AE4C6E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementApp.BLL", "StudentManagementApp.BLL\StudentManagementApp.BLL.csproj", "{D58423E3-77E0-4595-B4F1-8E3DBFA62C29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementApp.DAL", "StudentManagementApp.DAL\StudentManagementApp.DAL.csproj", "{8212101D-1400-4732-B570-E7DD3672BAD6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementApp.DAL", "StudentManagementApp.DAL\StudentManagementApp.DAL.csproj", "{8F80BBCE-8BD1-48AD-84A5-0DBAE562BD18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0B8A92EC-D585-4459-B995-287F07FC22E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B8A92EC-D585-4459-B995-287F07FC22E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B8A92EC-D585-4459-B995-287F07FC22E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B8A92EC-D585-4459-B995-287F07FC22E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BF6B70BD-C408-4E30-AF80-475F3AE4C6E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF6B70BD-C408-4E30-AF80-475F3AE4C6E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BF6B70BD-C408-4E30-AF80-475F3AE4C6E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BF6B70BD-C408-4E30-AF80-475F3AE4C6E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8212101D-1400-4732-B570-E7DD3672BAD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8212101D-1400-4732-B570-E7DD3672BAD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8212101D-1400-4732-B570-E7DD3672BAD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8212101D-1400-4732-B570-E7DD3672BAD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42C24989-B170-4028-A5E3-4F001C9472C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42C24989-B170-4028-A5E3-4F001C9472C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42C24989-B170-4028-A5E3-4F001C9472C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42C24989-B170-4028-A5E3-4F001C9472C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D58423E3-77E0-4595-B4F1-8E3DBFA62C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D58423E3-77E0-4595-B4F1-8E3DBFA62C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D58423E3-77E0-4595-B4F1-8E3DBFA62C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D58423E3-77E0-4595-B4F1-8E3DBFA62C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F80BBCE-8BD1-48AD-84A5-0DBAE562BD18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F80BBCE-8BD1-48AD-84A5-0DBAE562BD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F80BBCE-8BD1-48AD-84A5-0DBAE562BD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F80BBCE-8BD1-48AD-84A5-0DBAE562BD18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

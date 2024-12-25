@@ -26,6 +26,8 @@ namespace StudentManagementApp.DAL.Entities
         [StringLength(10)]
         public string Class { get; set; }
 
+        public double GPA { get; set; }
+
         public int FacultyID { get; set; }
 
         public int? MajorID { get; set; }
@@ -45,6 +47,9 @@ namespace StudentManagementApp.DAL.Entities
         [Required]
         [StringLength(50)]
         public string Email { get; set; }
+
+        [StringLength(255)]
+        public string Avatar { get; set; }
 
         public virtual Faculty Faculty { get; set; }
 
