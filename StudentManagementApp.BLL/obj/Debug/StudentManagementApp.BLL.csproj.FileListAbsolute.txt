@@ -1,0 +1,12 @@
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\StudentManagementApp.BLL.dll.config
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\StudentManagementApp.BLL.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\StudentManagementApp.BLL.pdb
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\EntityFramework.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\EntityFramework.xml
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\obj\Debug\StudentManagementApp.BLL.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\obj\Debug\StudentManagementApp.BLL.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\obj\Debug\StudentM.4A5C618F.Up2Date
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\obj\Debug\StudentManagementApp.BLL.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.BLL\obj\Debug\StudentManagementApp.BLL.pdb

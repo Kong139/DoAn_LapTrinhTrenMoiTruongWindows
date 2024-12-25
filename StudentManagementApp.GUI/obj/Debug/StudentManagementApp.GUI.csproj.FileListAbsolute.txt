@@ -1,0 +1,15 @@
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\bin\Debug\StudentManagementApp.GUI.exe.config
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\bin\Debug\StudentManagementApp.GUI.exe
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\bin\Debug\StudentManagementApp.GUI.pdb
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\bin\Debug\EntityFramework.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\bin\Debug\EntityFramework.xml
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.Properties.Resources.resources
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.csproj.GenerateResource.cache
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentM.0A0357C0.Up2Date
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.exe
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.pdb
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.Form1.resources
