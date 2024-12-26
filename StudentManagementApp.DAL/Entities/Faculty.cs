@@ -14,6 +14,7 @@ namespace StudentManagementApp.DAL.Entities
         {
             Majors = new HashSet<Major>();
             Students = new HashSet<Student>();
+            Teachers = new HashSet<Teacher>();
         }
 
         public int FacultyID { get; set; }
@@ -27,5 +28,8 @@ namespace StudentManagementApp.DAL.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Student> Students { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

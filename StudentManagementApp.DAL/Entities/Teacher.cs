@@ -6,29 +6,36 @@ namespace StudentManagementApp.DAL.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Subject")]
-    public partial class Subject
+    [Table("Teacher")]
+    public partial class Teacher
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Subject()
+        public Teacher()
         {
             Courses = new HashSet<Course>();
-            Scores = new HashSet<Score>();
         }
 
-        [StringLength(10)]
-        public string SubjectID { get; set; }
+        public int TeacherID { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string SubjectName { get; set; }
+        public string TeacherName { get; set; }
 
-        public int CreditHours { get; set; }
+        public bool Gender { get; set; }
+
+        public int FacultyID { get; set; }
+
+        [Required]
+        [StringLength(15)]
+        public string Phone { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Email { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Courses { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Score> Scores { get; set; }
+        public virtual Faculty Faculty { get; set; }
     }
 }

@@ -53,14 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Course.cs" />
     <Compile Include="Entities\Faculty.cs" />
     <Compile Include="Entities\Major.cs" />
+    <Compile Include="Entities\Registration.cs" />
     <Compile Include="Entities\Score.cs" />
     <Compile Include="Entities\ScoreCategory.cs" />
+    <Compile Include="Entities\Semester.cs" />
     <Compile Include="Entities\Status.cs" />
     <Compile Include="Entities\Student.cs" />
     <Compile Include="Entities\StudentManagementModel.cs" />
     <Compile Include="Entities\Subject.cs" />
+    <Compile Include="Entities\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

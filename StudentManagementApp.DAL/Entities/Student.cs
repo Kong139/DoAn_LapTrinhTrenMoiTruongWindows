@@ -12,6 +12,7 @@ namespace StudentManagementApp.DAL.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Student()
         {
+            Registrations = new HashSet<Registration>();
             Scores = new HashSet<Score>();
         }
 
@@ -21,6 +22,8 @@ namespace StudentManagementApp.DAL.Entities
         [Required]
         [StringLength(50)]
         public string StudentName { get; set; }
+
+        public bool Gender { get; set; }
 
         [Required]
         [StringLength(10)]
@@ -54,6 +57,9 @@ namespace StudentManagementApp.DAL.Entities
         public virtual Faculty Faculty { get; set; }
 
         public virtual Major Major { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Registration> Registrations { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Score> Scores { get; set; }
