@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using StudentManagementApp.DAL.Entities;
@@ -47,6 +48,12 @@ namespace StudentManagementApp.BLL
                 context.Students.Remove(s);
                 context.SaveChanges();
             }
+        }
+
+        public string GetStudentImagePath(string studentID)
+        {
+            StudentManagementModel context = new StudentManagementModel();
+            return context.Students.FirstOrDefault(p => p.StudentID == studentID).Avatar;
         }
     }
 }
