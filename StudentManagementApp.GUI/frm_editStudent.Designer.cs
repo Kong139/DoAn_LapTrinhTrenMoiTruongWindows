@@ -58,6 +58,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_done = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_deletePicture = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pic_student)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -174,7 +175,7 @@
             // 
             // btn_uploadPicture
             // 
-            this.btn_uploadPicture.Location = new System.Drawing.Point(65, 283);
+            this.btn_uploadPicture.Location = new System.Drawing.Point(65, 270);
             this.btn_uploadPicture.Name = "btn_uploadPicture";
             this.btn_uploadPicture.Size = new System.Drawing.Size(90, 33);
             this.btn_uploadPicture.TabIndex = 13;
@@ -265,10 +266,11 @@
             // 
             // dtp_birthday
             // 
-            this.dtp_birthday.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_birthday.CustomFormat = "dd/MM/yyyy";
+            this.dtp_birthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_birthday.Location = new System.Drawing.Point(459, 68);
             this.dtp_birthday.Name = "dtp_birthday";
-            this.dtp_birthday.Size = new System.Drawing.Size(187, 22);
+            this.dtp_birthday.Size = new System.Drawing.Size(133, 22);
             this.dtp_birthday.TabIndex = 16;
             // 
             // groupBox2
@@ -334,6 +336,7 @@
             this.btn_done.TabIndex = 19;
             this.btn_done.Text = "Xong";
             this.btn_done.UseVisualStyleBackColor = true;
+            this.btn_done.Click += new System.EventHandler(this.btn_done_Click);
             // 
             // btn_cancel
             // 
@@ -343,6 +346,17 @@
             this.btn_cancel.TabIndex = 20;
             this.btn_cancel.Text = "Hủy";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // btn_deletePicture
+            // 
+            this.btn_deletePicture.Location = new System.Drawing.Point(65, 315);
+            this.btn_deletePicture.Name = "btn_deletePicture";
+            this.btn_deletePicture.Size = new System.Drawing.Size(90, 33);
+            this.btn_deletePicture.TabIndex = 13;
+            this.btn_deletePicture.Text = "Xóa ảnh";
+            this.btn_deletePicture.UseVisualStyleBackColor = true;
+            this.btn_deletePicture.Click += new System.EventHandler(this.btn_deletePicture_Click);
             // 
             // frm_editStudent
             // 
@@ -354,6 +368,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btn_deletePicture);
             this.Controls.Add(this.btn_uploadPicture);
             this.Controls.Add(this.pic_student);
             this.Name = "frm_editStudent";
@@ -402,5 +417,6 @@
         private System.Windows.Forms.ComboBox cbb_faculty;
         private System.Windows.Forms.Button btn_done;
         private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.Button btn_deletePicture;
     }
 }

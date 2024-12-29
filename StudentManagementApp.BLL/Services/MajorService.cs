@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using StudentManagementApp.DAL.Entities;
+using StudentManagementApp.DAL.Repositories;
 
-namespace StudentManagementApp.BLL
+namespace StudentManagementApp.BLL.Services
 {
     public class MajorService
     {
+        private readonly MajorRepository majorRepository = new MajorRepository();
+
         public List<Major> GetAllByFaculty(int facultyID)
         {
-            StudentManagementModel context = new StudentManagementModel();
-            return context.Majors.Where(m => m.FacultyID == facultyID).ToList();
+            return majorRepository.GetAllByFaculty(facultyID);
         }
     }
 }

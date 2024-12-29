@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using StudentManagementApp.DAL.Entities;
+using StudentManagementApp.DAL.Repositories;
 
-namespace StudentManagementApp.BLL
+namespace StudentManagementApp.BLL.Services
 {
     public class FacultyService
     {
+        private readonly FacultyRepository facultyRepository = new FacultyRepository();
+
         public List<Faculty> GetAll()
         {
-            StudentManagementModel context = new StudentManagementModel();
-            return context.Faculties.ToList();
+            return facultyRepository.GetAll();
         }
     }
 }

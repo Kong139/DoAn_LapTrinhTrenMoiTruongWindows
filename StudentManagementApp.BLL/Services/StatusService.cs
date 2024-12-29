@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using StudentManagementApp.DAL.Entities;
+using StudentManagementApp.DAL.Repositories;
 
-namespace StudentManagementApp.BLL
+namespace StudentManagementApp.BLL.Services
 {
     public class StatusService
     {
+        private readonly StatusRepository statusRepository = new StatusRepository();
+
         public List<Status> GetAll()
         {
-            StudentManagementModel context = new StudentManagementModel();
-            return context.Status.ToList();
+            return statusRepository.GetAll();
         }
     }
 }

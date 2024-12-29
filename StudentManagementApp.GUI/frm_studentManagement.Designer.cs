@@ -84,9 +84,9 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.txt_findByID = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolstr_btn_add = new System.Windows.Forms.ToolStripButton();
+            this.toolstr_btn_delete = new System.Windows.Forms.ToolStripButton();
+            this.toolstr_btn_edit = new System.Windows.Forms.ToolStripButton();
             this.grb_studentDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_student)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_student)).BeginInit();
@@ -109,6 +109,7 @@
             this.grb_studentDetail.Size = new System.Drawing.Size(210, 573);
             this.grb_studentDetail.TabIndex = 5;
             this.grb_studentDetail.TabStop = false;
+            this.grb_studentDetail.Visible = false;
             // 
             // btn_subjectRegistration
             // 
@@ -368,12 +369,14 @@
             this.menu_editStudent.Name = "menu_editStudent";
             this.menu_editStudent.Size = new System.Drawing.Size(242, 26);
             this.menu_editStudent.Text = "Sửa thông tin sinh viên";
+            this.menu_editStudent.Click += new System.EventHandler(this.menu_editStudent_Click);
             // 
             // menu_deleteStudent
             // 
             this.menu_deleteStudent.Name = "menu_deleteStudent";
             this.menu_deleteStudent.Size = new System.Drawing.Size(242, 26);
             this.menu_deleteStudent.Text = "Xóa sinh viên";
+            this.menu_deleteStudent.Click += new System.EventHandler(this.menu_deleteStudent_Click);
             // 
             // toolStripSeparator1
             // 
@@ -536,9 +539,9 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.txt_findByID,
             this.toolStripLabel1,
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3});
+            this.toolstr_btn_add,
+            this.toolstr_btn_delete,
+            this.toolstr_btn_edit});
             this.toolStrip1.Location = new System.Drawing.Point(0, 32);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1250, 33);
@@ -559,29 +562,31 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(127, 30);
             this.toolStripLabel1.Text = "Tìm theo MSSV";
             // 
-            // toolStripButton1
+            // toolstr_btn_add
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(77, 30);
-            this.toolStripButton1.Text = "Thêm";
+            this.toolstr_btn_add.Image = ((System.Drawing.Image)(resources.GetObject("toolstr_btn_add.Image")));
+            this.toolstr_btn_add.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolstr_btn_add.Name = "toolstr_btn_add";
+            this.toolstr_btn_add.Size = new System.Drawing.Size(77, 30);
+            this.toolstr_btn_add.Text = "Thêm";
             // 
-            // toolStripButton2
+            // toolstr_btn_delete
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(63, 30);
-            this.toolStripButton2.Text = "Xóa";
+            this.toolstr_btn_delete.Image = ((System.Drawing.Image)(resources.GetObject("toolstr_btn_delete.Image")));
+            this.toolstr_btn_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolstr_btn_delete.Name = "toolstr_btn_delete";
+            this.toolstr_btn_delete.Size = new System.Drawing.Size(63, 30);
+            this.toolstr_btn_delete.Text = "Xóa";
+            this.toolstr_btn_delete.Click += new System.EventHandler(this.toolstr_btn_delete_Click);
             // 
-            // toolStripButton3
+            // toolstr_btn_edit
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(62, 30);
-            this.toolStripButton3.Text = "Sửa";
+            this.toolstr_btn_edit.Image = ((System.Drawing.Image)(resources.GetObject("toolstr_btn_edit.Image")));
+            this.toolstr_btn_edit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolstr_btn_edit.Name = "toolstr_btn_edit";
+            this.toolstr_btn_edit.Size = new System.Drawing.Size(62, 30);
+            this.toolstr_btn_edit.Text = "Sửa";
+            this.toolstr_btn_edit.Click += new System.EventHandler(this.toolstr_btn_edit_Click);
             // 
             // frm_studentManagement
             // 
@@ -633,9 +638,9 @@
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox3;
         private System.Windows.Forms.ToolStripMenuItem theoTrạngTháiToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox4;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolstr_btn_add;
+        private System.Windows.Forms.ToolStripButton toolstr_btn_delete;
+        private System.Windows.Forms.ToolStripButton toolstr_btn_edit;
         private System.Windows.Forms.ToolStripMenuItem theoGPAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dưới25ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem giỏi3236ToolStripMenuItem;

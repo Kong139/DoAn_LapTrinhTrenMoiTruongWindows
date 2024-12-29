@@ -51,8 +51,7 @@ namespace StudentManagementApp.DAL.Entities
         [StringLength(50)]
         public string Email { get; set; }
 
-        [StringLength(255)]
-        public string Avatar { get; set; }
+        public byte[] Avatar { get; set; }
 
         public virtual Faculty Faculty { get; set; }
 

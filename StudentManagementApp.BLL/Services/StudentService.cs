@@ -1,59 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-using System.Linq;
+﻿using System.Collections.Generic;
 using StudentManagementApp.DAL.Entities;
+using StudentManagementApp.DAL.Services;
 
 namespace StudentManagementApp.BLL
 {
     public class StudentService
     {
+        private readonly StudentRepository studentRepository = new StudentRepository();
+
         public List<Student> GetAll()
         {
-            StudentManagementModel context = new StudentManagementModel();
-            return context.Students.ToList();
+            return studentRepository.GetAll();
         }
 
         public List<Student> GetAllHasNoMajor()
         {
-            StudentManagementModel context = new StudentManagementModel();
-            return context.Students.Where(p => p.MajorID == null).ToList();
+            return studentRepository.GetAllHasNoMajor();
         }
 
         public List<Student> GetAllHasNoMajor(int facultyID)
         {
-            StudentManagementModel context = new StudentManagementModel();
-            return context.Students.Where(p => p.MajorID == null && p.FacultyID == facultyID).ToList();
+            return studentRepository.GetAllHasNoMajor(facultyID);
         }
 
         public Student FindById(string studentId)
         {
-            StudentManagementModel context = new StudentManagementModel();
-            return context.Students.FirstOrDefault(p => p.StudentID == studentId);
+            return studentRepository.FindById(studentId);
         }
 
         public void InsertUpdate(Student s)
         {
-            StudentManagementModel context = new StudentManagementModel();
-            context.Students.AddOrUpdate(s);
-            context.SaveChanges();
+            studentRepository.InsertUpdate(s);
         }
 
         public void Delete(string studentID)
         {
-            StudentManagementModel context = new StudentManagementModel();
-            var s = context.Students.FirstOrDefault(p => p.StudentID == studentID);
-            if (s != null)
-            {
-                context.Students.Remove(s);
-                context.SaveChanges();
-            }
+            studentRepository.Delete(studentID);
         }
 
-        public string GetStudentImagePath(string studentID)
+        public byte[] GetStudentAvatar(string studentID)
         {
-            StudentManagementModel context = new StudentManagementModel();
-            return context.Students.FirstOrDefault(p => p.StudentID == studentID).Avatar;
+            return studentRepository.GetStudentAvatar(studentID);
+        }
+
+        public bool IsStudentIDExists(string studentID)
+        {
+            return studentRepository.IsStudentIDExists(studentID);
         }
     }
 }

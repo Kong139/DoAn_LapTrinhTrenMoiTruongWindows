@@ -58,7 +58,7 @@ CREATE TABLE Student (
     Address NVARCHAR(100) NOT NULL,
     StatusID INT NOT NULL DEFAULT 1,
     Email VARCHAR(50) NOT NULL,
-    Avatar NVARCHAR(255),
+    Avatar VARBINARY(MAX),
     FOREIGN KEY (FacultyID) REFERENCES Faculty(FacultyID),
     FOREIGN KEY (MajorID) REFERENCES Major(MajorID),
     FOREIGN KEY (StatusID) REFERENCES Status(StatusID)
