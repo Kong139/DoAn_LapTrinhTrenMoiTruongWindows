@@ -10,35 +10,37 @@ namespace StudentManagementApp.GUI
     public partial class frm_studentManagement : Form
     {
         private readonly StudentService studentService = new StudentService();
-        private readonly FacultyService facultyService = new FacultyService();
 
         public frm_studentManagement()
         {
             InitializeComponent();
 
-            // Cấu hình cho Form
+            // Chỉnh sửa giao diện cho Form
             UIConfig.ConfigureForm(this);
 
-            // Cấu hình cho DataGridView
+            // Chỉnh sửa giao diện cho DataGridView
             UIConfig.ConfigureDataGridView(dgv_student);
 
-            // Cấu hình cho MenuStrip
+            // Chỉnh sửa giao diện cho MenuStrip
             UIConfig.ConfigureMenuStrip(menuStrip1);
 
-            // Cấu hình cho ToolStrip
+            // Chỉnh sửa giao diện cho ToolStrip
             UIConfig.ConfigureToolStrip(toolStrip1);
 
-            // Cấu hình cho Button
+            // Chỉnh sửa giao diện cho Button
             UIConfig.ConfigureButton(btn_editStudent);
             UIConfig.ConfigureButton(btn_scoreManagement);
             UIConfig.ConfigureButton(btn_subjectRegistration);
 
-            // Cấu hình cho Label
+            // Chỉnh sửa giao diện cho Label
             UIConfig.ConfigureLabel(lbl_studentID);
             UIConfig.ConfigureLabel(lbl_studentName);
+
+            // Chỉnh sửa giao diện cho PictureBox
+            UIConfig.ConfigurePictureBox(pic_student);
         }
 
-        //Hàm Load Form
+        // Hàm Load Form
         private void frm_studentManagement_Load(object sender, EventArgs e)
         {
             try
@@ -52,7 +54,7 @@ namespace StudentManagementApp.GUI
             }
         }
 
-        //Hàm binding gridView từ list sinh viên
+        // Hàm binding gridView từ list sinh viên
         private void BindGrid(List<Student> listStudent)
         {
             dgv_student.Rows.Clear();
@@ -75,7 +77,7 @@ namespace StudentManagementApp.GUI
             }
         }
 
-        //Hiển thị ảnh và thông tin sinh viên khi click vào dòng
+        // Hiển thị ảnh và thông tin sinh viên khi click vào dòng
         private void dgv_student_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Kiểm tra xem người dùng có nhấp vào dòng hợp lệ không
@@ -96,18 +98,27 @@ namespace StudentManagementApp.GUI
                 // Hiển thị ảnh nếu có
                 if (!string.IsNullOrEmpty(studentImagePath) && System.IO.File.Exists(studentImagePath))
                 {
-                    pictureBox_student.Image = Image.FromFile(studentImagePath);
+                    pic_student.Image = Image.FromFile(studentImagePath);
                 }
                 else
                 {
-                    pictureBox_student.Image = null; // Hiển thị ảnh trống nếu không có ảnh
+                    pic_student.Image = null; // Hiển thị ảnh trống nếu không có ảnh
                 }
             }
         }
 
         private void btn_editStudent_Click(object sender, EventArgs e)
         {
-
+            if (dgv_student.SelectedRows.Count > 0)
+            {
+                string studentID = dgv_student.SelectedRows[0].Cells[0].Value.ToString();
+                frm_editStudent frm = new frm_editStudent(studentID);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên cần chỉnh sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

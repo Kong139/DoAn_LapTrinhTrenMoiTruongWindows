@@ -35,7 +35,7 @@
             this.btn_editStudent = new System.Windows.Forms.Button();
             this.lbl_studentName = new System.Windows.Forms.Label();
             this.lbl_studentID = new System.Windows.Forms.Label();
-            this.pictureBox_student = new System.Windows.Forms.PictureBox();
+            this.pic_student = new System.Windows.Forms.PictureBox();
             this.dgv_student = new System.Windows.Forms.DataGridView();
             this.col_studentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,7 +88,7 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.grb_studentDetail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_student)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_student)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_student)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -103,7 +103,7 @@
             this.grb_studentDetail.Controls.Add(this.btn_editStudent);
             this.grb_studentDetail.Controls.Add(this.lbl_studentName);
             this.grb_studentDetail.Controls.Add(this.lbl_studentID);
-            this.grb_studentDetail.Controls.Add(this.pictureBox_student);
+            this.grb_studentDetail.Controls.Add(this.pic_student);
             this.grb_studentDetail.Location = new System.Drawing.Point(12, 63);
             this.grb_studentDetail.Name = "grb_studentDetail";
             this.grb_studentDetail.Size = new System.Drawing.Size(210, 573);
@@ -112,27 +112,27 @@
             // 
             // btn_subjectRegistration
             // 
-            this.btn_subjectRegistration.Location = new System.Drawing.Point(29, 456);
+            this.btn_subjectRegistration.Location = new System.Drawing.Point(29, 427);
             this.btn_subjectRegistration.Name = "btn_subjectRegistration";
-            this.btn_subjectRegistration.Size = new System.Drawing.Size(150, 35);
+            this.btn_subjectRegistration.Size = new System.Drawing.Size(150, 33);
             this.btn_subjectRegistration.TabIndex = 13;
             this.btn_subjectRegistration.Text = "Đăng ký học phần";
             this.btn_subjectRegistration.UseVisualStyleBackColor = true;
             // 
             // btn_scoreManagement
             // 
-            this.btn_scoreManagement.Location = new System.Drawing.Point(29, 415);
+            this.btn_scoreManagement.Location = new System.Drawing.Point(29, 388);
             this.btn_scoreManagement.Name = "btn_scoreManagement";
-            this.btn_scoreManagement.Size = new System.Drawing.Size(150, 35);
+            this.btn_scoreManagement.Size = new System.Drawing.Size(150, 33);
             this.btn_scoreManagement.TabIndex = 12;
             this.btn_scoreManagement.Text = "Quản lý điểm";
             this.btn_scoreManagement.UseVisualStyleBackColor = true;
             // 
             // btn_editStudent
             // 
-            this.btn_editStudent.Location = new System.Drawing.Point(29, 374);
+            this.btn_editStudent.Location = new System.Drawing.Point(29, 349);
             this.btn_editStudent.Name = "btn_editStudent";
-            this.btn_editStudent.Size = new System.Drawing.Size(150, 35);
+            this.btn_editStudent.Size = new System.Drawing.Size(150, 33);
             this.btn_editStudent.TabIndex = 11;
             this.btn_editStudent.Text = "Sửa thông tin";
             this.btn_editStudent.UseVisualStyleBackColor = true;
@@ -140,9 +140,9 @@
             // 
             // lbl_studentName
             // 
-            this.lbl_studentName.Location = new System.Drawing.Point(15, 286);
+            this.lbl_studentName.Location = new System.Drawing.Point(6, 286);
             this.lbl_studentName.Name = "lbl_studentName";
-            this.lbl_studentName.Size = new System.Drawing.Size(180, 46);
+            this.lbl_studentName.Size = new System.Drawing.Size(198, 46);
             this.lbl_studentName.TabIndex = 2;
             this.lbl_studentName.Text = "Họ tên";
             this.lbl_studentName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -156,14 +156,14 @@
             this.lbl_studentID.Text = "MSSV";
             this.lbl_studentID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox_student
+            // pic_student
             // 
-            this.pictureBox_student.Location = new System.Drawing.Point(18, 21);
-            this.pictureBox_student.Name = "pictureBox_student";
-            this.pictureBox_student.Size = new System.Drawing.Size(175, 233);
-            this.pictureBox_student.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_student.TabIndex = 0;
-            this.pictureBox_student.TabStop = false;
+            this.pic_student.Location = new System.Drawing.Point(18, 21);
+            this.pic_student.Name = "pic_student";
+            this.pic_student.Size = new System.Drawing.Size(175, 233);
+            this.pic_student.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_student.TabIndex = 0;
+            this.pic_student.TabStop = false;
             // 
             // dgv_student
             // 
@@ -596,7 +596,7 @@
             this.Text = "Quản lý sinh viên";
             this.Load += new System.EventHandler(this.frm_studentManagement_Load);
             this.grb_studentDetail.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_student)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_student)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_student)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -612,7 +612,7 @@
         private System.Windows.Forms.GroupBox grb_studentDetail;
         private System.Windows.Forms.Button btn_editStudent;
         private System.Windows.Forms.Label lbl_studentName;
-        private System.Windows.Forms.PictureBox pictureBox_student;
+        private System.Windows.Forms.PictureBox pic_student;
         private System.Windows.Forms.DataGridView dgv_student;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem chứcNăngToolStripMenuItem;

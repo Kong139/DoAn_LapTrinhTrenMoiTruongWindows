@@ -165,6 +165,60 @@ public static class UIConfig
     public static void ConfigureLabel(Label lbl)
     {
         lbl.ForeColor = Color.Black;
-        lbl.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+        lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
     }
+
+    // Cấu hình GroupBox (màu nền, viền, font, và màu chữ)
+    public static void ConfigureGroupBox(GroupBox groupBox)
+    {
+        groupBox.BackColor = Color.WhiteSmoke; // Màu nền của GroupBox
+        groupBox.ForeColor = Color.FromArgb(70, 130, 180); // Màu chữ tiêu đề
+        groupBox.Font = new Font("Segoe UI", 10, FontStyle.Bold); // Font chữ tiêu đề
+
+        // Tuỳ chỉnh đường viền (không trực tiếp hỗ trợ, nhưng có thể vẽ lại)
+        groupBox.Paint += (sender, e) =>
+        {
+            GroupBox box = sender as GroupBox;
+            e.Graphics.Clear(box.BackColor); // Xóa nền cũ
+
+            // Vẽ tiêu đề
+            TextRenderer.DrawText(e.Graphics, box.Text, box.Font, new Point(10, 0), box.ForeColor);
+
+            // Vẽ đường viền
+            using (Pen pen = new Pen(Color.FromArgb(70, 130, 180), 2))
+            {
+                Rectangle rect = new Rectangle(1, 7, box.Width - 2, box.Height - 8);
+                e.Graphics.DrawRectangle(pen, rect);
+            }
+        };
+    }
+
+    // Cấu hình PictureBox (màu nền, viền, chế độ hiển thị ảnh)
+    public static void ConfigurePictureBox(PictureBox pictureBox)
+    {
+        pictureBox.BackColor = Color.WhiteSmoke; // Màu nền PictureBox
+        pictureBox.BorderStyle = BorderStyle.FixedSingle; // Kiểu viền: đường viền đơn
+        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage; // Ảnh co giãn để vừa khít với PictureBox
+
+        // Hiệu ứng khi di chuột
+        pictureBox.MouseEnter += (sender, e) =>
+        {
+            pictureBox.BackColor = Color.FromArgb(245, 245, 245); // Màu nền nhạt hơn khi hover
+        };
+        pictureBox.MouseLeave += (sender, e) =>
+        {
+            pictureBox.BackColor = Color.WhiteSmoke; // Trả lại màu nền ban đầu
+        };
+
+        // Hiệu ứng khi focus
+        pictureBox.GotFocus += (sender, e) =>
+        {
+            pictureBox.BorderStyle = BorderStyle.Fixed3D; // Viền nổi lên khi focus
+        };
+        pictureBox.LostFocus += (sender, e) =>
+        {
+            pictureBox.BorderStyle = BorderStyle.FixedSingle; // Trả lại viền ban đầu
+        };
+    }
+
 }
