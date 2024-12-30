@@ -208,5 +208,31 @@ namespace StudentManagementApp.GUI
                 MessageBox.Show("Vui lòng chọn sinh viên cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void menu_addStudent_Click(object sender, EventArgs e)
+        {
+            frm_addStudent frm = new frm_addStudent();
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                ReloadData();
+            }
+        }
+
+        private void toolstr_btn_add_Click(object sender, EventArgs e)
+        {
+            frm_addStudent frm = new frm_addStudent();
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                ReloadData();
+            }
+        }
+
+        private void quảnLýKhóaHọcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_courseManagement frm = new frm_courseManagement();
+            frm.ShowDialog();
+        }
     }
 }

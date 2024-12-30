@@ -15,7 +15,8 @@ namespace StudentManagementApp.DAL.Entities
             Registrations = new HashSet<Registration>();
         }
 
-        public int CourseID { get; set; }
+        [StringLength(5)]
+        public string CourseID { get; set; }
 
         [Required]
         [StringLength(10)]

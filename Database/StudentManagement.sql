@@ -88,7 +88,7 @@ GO
 
 -- Tạo bảng Course (phụ thuộc vào Subject, Teacher, Semester)
 CREATE TABLE Course (
-    CourseID INT IDENTITY(1,1) PRIMARY KEY,
+    CourseID VARCHAR(5) PRIMARY KEY,
     SubjectID VARCHAR(10) NOT NULL,
     TeacherID INT NOT NULL,
     SemesterID INT NOT NULL,
@@ -104,7 +104,7 @@ GO
 -- Tạo bảng Registration (phụ thuộc vào Student, Course)
 CREATE TABLE Registration (
     StudentID VARCHAR(10) NOT NULL,
-    CourseID INT NOT NULL,
+    CourseID VARCHAR(5) NOT NULL,
     RegistrationDate DATETIME NOT NULL DEFAULT GETDATE(),
     PRIMARY KEY (StudentID, CourseID),
     FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
@@ -201,12 +201,12 @@ VALUES
 GO
 
 -- Thêm dữ liệu vào bảng Course
-INSERT INTO Course (SubjectID, TeacherID, SemesterID, Schedule, MaxStudents)
+INSERT INTO Course (CourseID, SubjectID, TeacherID, SemesterID, Schedule, MaxStudents)
 VALUES
-    ('POS106', 1, 1, N'Thứ 2, Thứ 4, Tiết 1-3', 30),
-    ('POS105', 2, 1, N'Thứ 3, Thứ 5, Tiết 2-4', 25),
-    ('PSY167', 3, 2, N'Thứ 2, Thứ 4, Tiết 4-6', 40),
-    ('POS104', 1, 3, N'Thứ 3, Thứ 5, Tiết 1-2', 35),
-    ('POS107', 2, 4, N'Thứ 4, Thứ 6, Tiết 3-5', 20),
-    ('POS106', 3, 5, N'Thứ 2, Thứ 4, Tiết 5-6', 50);
+    ('POS01', 'POS106', 1, 1, N'Thứ 2, Thứ 4, Tiết 1-3', 30),
+    ('POS02', 'POS105', 2, 1, N'Thứ 3, Thứ 5, Tiết 2-4', 25),
+    ('PSY01', 'PSY167', 3, 2, N'Thứ 2, Thứ 4, Tiết 4-6', 40),
+    ('POS03', 'POS104', 1, 3, N'Thứ 3, Thứ 5, Tiết 1-2', 35),
+    ('POS04', 'POS107', 2, 4, N'Thứ 4, Thứ 6, Tiết 3-5', 20),
+    ('POS05', 'POS106', 3, 5, N'Thứ 2, Thứ 4, Tiết 5-6', 50);
 GO

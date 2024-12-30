@@ -16,8 +16,8 @@ namespace StudentManagementApp.DAL.Entities
 
         [Key]
         [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int CourseID { get; set; }
+        [StringLength(5)]
+        public string CourseID { get; set; }
 
         public DateTime RegistrationDate { get; set; }
 

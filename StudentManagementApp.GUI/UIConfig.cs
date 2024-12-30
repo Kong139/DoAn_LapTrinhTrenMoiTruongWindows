@@ -111,11 +111,11 @@ public static class UIConfig
         dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);
     }
 
-    // Cải tiến cho Button để có góc bo tròn và hiệu ứng hover
     public static void ConfigureButton(Button btn)
     {
-        btn.BackColor = Color.FromArgb(135, 206, 250);
-        btn.ForeColor = Color.Black;
+        // Màu nền hiện đại và dễ nhìn hơn
+        btn.BackColor = Color.FromArgb(52, 152, 219);
+        btn.ForeColor = Color.White;
         btn.FlatStyle = FlatStyle.Flat;
         btn.FlatAppearance.BorderSize = 0;
         btn.Font = new Font("Segoe UI", 9, FontStyle.Bold);
@@ -124,18 +124,18 @@ public static class UIConfig
         btn.TextAlign = ContentAlignment.MiddleCenter;
         btn.AutoSize = false;
 
-        // Bo góc button (dùng GraphicsPath)
-        btn.Region = new Region(CreateRoundedRectanglePath(btn.ClientRectangle, 20));
+        // Bo góc nhẹ hơn (8 pixel)
+        btn.Region = new Region(CreateRoundedRectanglePath(btn.ClientRectangle, 8));
 
         // Thêm sự kiện hover
         btn.MouseEnter += (sender, e) =>
         {
-            btn.BackColor = Color.FromArgb(173, 216, 230);
+            btn.BackColor = Color.FromArgb(41, 128, 185);
         };
 
         btn.MouseLeave += (sender, e) =>
         {
-            btn.BackColor = Color.FromArgb(135, 206, 250);
+            btn.BackColor = Color.FromArgb(52, 152, 219);
         };
     }
 

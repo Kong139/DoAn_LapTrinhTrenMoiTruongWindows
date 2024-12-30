@@ -56,6 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_addStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_addStudent.Designer.cs">
+      <DependentUpon>frm_addStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_courseManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_courseManagement.Designer.cs">
+      <DependentUpon>frm_courseManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_editStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +83,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UIConfig.cs" />
+    <EmbeddedResource Include="frm_addStudent.resx">
+      <DependentUpon>frm_addStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_courseManagement.resx">
+      <DependentUpon>frm_courseManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_editStudent.resx">
       <DependentUpon>frm_editStudent.cs</DependentUpon>
     </EmbeddedResource>

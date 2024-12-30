@@ -27,6 +27,10 @@ namespace StudentManagementApp.DAL.Entities
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Course>()
+                .Property(e => e.CourseID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Course>()
                 .Property(e => e.SubjectID)
                 .IsUnicode(false);
 
@@ -52,6 +56,10 @@ namespace StudentManagementApp.DAL.Entities
 
             modelBuilder.Entity<Registration>()
                 .Property(e => e.StudentID)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Registration>()
+                .Property(e => e.CourseID)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Score>()
