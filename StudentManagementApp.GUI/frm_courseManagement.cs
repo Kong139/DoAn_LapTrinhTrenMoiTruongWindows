@@ -11,6 +11,8 @@ namespace StudentManagementApp.GUI
     {
         private readonly CourseService courseService = new CourseService();
         private readonly SemesterService semesterService = new SemesterService();
+        private readonly SubjectService subjectService = new SubjectService();
+
         public frm_courseManagement()
         {
             InitializeComponent();
@@ -40,7 +42,9 @@ namespace StudentManagementApp.GUI
             {
                 var listCourses = courseService.GetAll();
                 var listSemesters = semesterService.GetAll();
+                var listSubjects = subjectService.GetAll();
                 FillSemesterCombobox(listSemesters);
+                FillSubjectCombobox(listSubjects);
                 BindGrid(listCourses);
             }
             catch (Exception ex)
@@ -49,11 +53,18 @@ namespace StudentManagementApp.GUI
             }
         }
 
+        private void FillSubjectCombobox(List<Subject> listSubjects)
+        {
+            this.cbb_subject.DataSource = listSubjects;
+            this.cbb_subject.DisplayMember = "SubjectName";
+            this.cbb_subject.ValueMember = "SubjectID";
+        }
+
         private void FillSemesterCombobox(List<Semester> listSemesters)
         {
-            this.cbb_semesterName.DataSource = listSemesters;
-            this.cbb_semesterName.DisplayMember = "SemesterName";
-            this.cbb_semesterName.ValueMember = "SemesterID";
+            this.cbb_semester.DataSource = listSemesters;
+            this.cbb_semester.DisplayMember = "SemesterName";
+            this.cbb_semester.ValueMember = "SemesterID";
         }
 
         private void BindGrid(List<Course> listCourses)
@@ -81,11 +92,16 @@ namespace StudentManagementApp.GUI
 
                 // Hiển thị thông tin lên các control
                 txt_courseID.Text = selectedRow.Cells[0].Value?.ToString();
-                txt_subjectName.Text = selectedRow.Cells[1].Value?.ToString();
+                cbb_subject.SelectedValue = subjectService.GetSubjectID(selectedRow.Cells[1].Value?.ToString());
                 txt_teacherName.Text = selectedRow.Cells[2].Value?.ToString();
-                cbb_semesterName.SelectedValue = semesterService.GetSemesterID(selectedRow.Cells[3].Value?.ToString());
+                cbb_semester.SelectedValue = semesterService.GetSemesterID(selectedRow.Cells[3].Value?.ToString());
                 txt_schedule.Text = selectedRow.Cells[4].Value?.ToString();
             }
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

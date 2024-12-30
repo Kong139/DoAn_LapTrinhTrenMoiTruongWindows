@@ -42,19 +42,19 @@
             this.col_schedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_currentStudents = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_courseID = new System.Windows.Forms.TextBox();
-            this.txt_teacherName = new System.Windows.Forms.TextBox();
-            this.txt_subjectName = new System.Windows.Forms.TextBox();
-            this.txt_schedule = new System.Windows.Forms.TextBox();
-            this.cbb_semesterName = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbb_semester = new System.Windows.Forms.ComboBox();
+            this.txt_schedule = new System.Windows.Forms.TextBox();
+            this.txt_teacherName = new System.Windows.Forms.TextBox();
+            this.txt_courseID = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbb_subject = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_course)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -80,6 +80,7 @@
             this.btn_edit.TabIndex = 11;
             this.btn_edit.Text = "Sửa ";
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_add
             // 
@@ -206,103 +207,14 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1151, 503);
             this.tableLayoutPanel1.TabIndex = 17;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 77);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 16);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Học kỳ:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(364, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 16);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Giảng viên:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(364, 77);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 16);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Lịch học:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 16);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Mã học phần:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(318, 55);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 16);
-            this.label7.TabIndex = 15;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(752, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 16);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Tên học phần:";
-            // 
-            // txt_courseID
-            // 
-            this.txt_courseID.Location = new System.Drawing.Point(131, 19);
-            this.txt_courseID.Name = "txt_courseID";
-            this.txt_courseID.Size = new System.Drawing.Size(110, 22);
-            this.txt_courseID.TabIndex = 16;
-            // 
-            // txt_teacherName
-            // 
-            this.txt_teacherName.Location = new System.Drawing.Point(467, 22);
-            this.txt_teacherName.Name = "txt_teacherName";
-            this.txt_teacherName.Size = new System.Drawing.Size(233, 22);
-            this.txt_teacherName.TabIndex = 16;
-            // 
-            // txt_subjectName
-            // 
-            this.txt_subjectName.Location = new System.Drawing.Point(879, 22);
-            this.txt_subjectName.Name = "txt_subjectName";
-            this.txt_subjectName.Size = new System.Drawing.Size(223, 22);
-            this.txt_subjectName.TabIndex = 16;
-            // 
-            // txt_schedule
-            // 
-            this.txt_schedule.Location = new System.Drawing.Point(467, 74);
-            this.txt_schedule.Name = "txt_schedule";
-            this.txt_schedule.Size = new System.Drawing.Size(233, 22);
-            this.txt_schedule.TabIndex = 16;
-            // 
-            // cbb_semesterName
-            // 
-            this.cbb_semesterName.FormattingEnabled = true;
-            this.cbb_semesterName.Location = new System.Drawing.Point(131, 74);
-            this.cbb_semesterName.Name = "cbb_semesterName";
-            this.cbb_semesterName.Size = new System.Drawing.Size(199, 24);
-            this.cbb_semesterName.TabIndex = 17;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btn_delete);
             this.groupBox1.Controls.Add(this.btn_edit);
             this.groupBox1.Controls.Add(this.btn_add);
-            this.groupBox1.Controls.Add(this.cbb_semesterName);
+            this.groupBox1.Controls.Add(this.cbb_subject);
+            this.groupBox1.Controls.Add(this.cbb_semester);
             this.groupBox1.Controls.Add(this.txt_schedule);
-            this.groupBox1.Controls.Add(this.txt_subjectName);
             this.groupBox1.Controls.Add(this.txt_teacherName);
             this.groupBox1.Controls.Add(this.txt_courseID);
             this.groupBox1.Controls.Add(this.label3);
@@ -317,6 +229,88 @@
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             // 
+            // cbb_semester
+            // 
+            this.cbb_semester.FormattingEnabled = true;
+            this.cbb_semester.Location = new System.Drawing.Point(131, 74);
+            this.cbb_semester.Name = "cbb_semester";
+            this.cbb_semester.Size = new System.Drawing.Size(199, 24);
+            this.cbb_semester.TabIndex = 17;
+            // 
+            // txt_schedule
+            // 
+            this.txt_schedule.Location = new System.Drawing.Point(467, 74);
+            this.txt_schedule.Name = "txt_schedule";
+            this.txt_schedule.Size = new System.Drawing.Size(233, 22);
+            this.txt_schedule.TabIndex = 16;
+            // 
+            // txt_teacherName
+            // 
+            this.txt_teacherName.Location = new System.Drawing.Point(467, 19);
+            this.txt_teacherName.Name = "txt_teacherName";
+            this.txt_teacherName.Size = new System.Drawing.Size(233, 22);
+            this.txt_teacherName.TabIndex = 16;
+            // 
+            // txt_courseID
+            // 
+            this.txt_courseID.Location = new System.Drawing.Point(131, 19);
+            this.txt_courseID.Name = "txt_courseID";
+            this.txt_courseID.Size = new System.Drawing.Size(110, 22);
+            this.txt_courseID.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(744, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 16);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Môn học:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(318, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 16);
+            this.label7.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 16);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Mã học phần:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(364, 77);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 16);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Lịch học:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(364, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 16);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Giảng viên:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(15, 77);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 16);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Học kỳ:";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txt_find);
@@ -327,6 +321,14 @@
             this.groupBox2.Size = new System.Drawing.Size(1145, 44);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
+            // 
+            // cbb_subject
+            // 
+            this.cbb_subject.FormattingEnabled = true;
+            this.cbb_subject.Location = new System.Drawing.Point(831, 19);
+            this.cbb_subject.Name = "cbb_subject";
+            this.cbb_subject.Size = new System.Drawing.Size(282, 24);
+            this.cbb_subject.TabIndex = 17;
             // 
             // frm_courseManagement
             // 
@@ -364,9 +366,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_currentStudents;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbb_semesterName;
+        private System.Windows.Forms.ComboBox cbb_semester;
         private System.Windows.Forms.TextBox txt_schedule;
-        private System.Windows.Forms.TextBox txt_subjectName;
         private System.Windows.Forms.TextBox txt_teacherName;
         private System.Windows.Forms.TextBox txt_courseID;
         private System.Windows.Forms.Label label3;
@@ -376,5 +377,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cbb_subject;
     }
 }

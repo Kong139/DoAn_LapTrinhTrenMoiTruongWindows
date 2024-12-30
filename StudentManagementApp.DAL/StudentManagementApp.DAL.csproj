@@ -72,6 +72,7 @@
     <Compile Include="Repositories\SemesterRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
+    <Compile Include="Repositories\SubjectRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
