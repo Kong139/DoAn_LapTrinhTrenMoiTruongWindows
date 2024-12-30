@@ -16,13 +16,12 @@ namespace StudentManagementApp.GUI
         private readonly MajorService majorService = new MajorService();
         private readonly StatusService statusService = new StatusService();
         private string studentID;
-        private string avatarFilePath = string.Empty;
+        private string avatarFilePath = null;
 
-        public frm_editStudent(string studentID)
+        public frm_editStudent(string ID)
         {
             InitializeComponent();
-
-            this.studentID = studentID;
+            studentID = ID;
 
             // Chỉnh sửa giao diện cho Form
             UIConfig.ConfigureForm(this);
@@ -145,6 +144,7 @@ namespace StudentManagementApp.GUI
         private void btn_deletePicture_Click(object sender, EventArgs e)
         {
             pic_student.Image = null;
+            avatarFilePath = null;
         }
 
         private void btn_done_Click(object sender, EventArgs e)
@@ -179,6 +179,10 @@ namespace StudentManagementApp.GUI
                 if (!string.IsNullOrEmpty(avatarFilePath))
                 {
                     student.Avatar = System.IO.File.ReadAllBytes(avatarFilePath);
+                }
+                else
+                {
+                    student.Avatar = null;
                 }
 
                 // Kiểm tra giá trị nhập
