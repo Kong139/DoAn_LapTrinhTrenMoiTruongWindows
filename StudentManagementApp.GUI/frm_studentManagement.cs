@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using StudentManagementApp.BLL;
+using StudentManagementApp.BLL.Services;
 using StudentManagementApp.DAL.Entities;
 
 namespace StudentManagementApp.GUI
@@ -10,6 +11,9 @@ namespace StudentManagementApp.GUI
     public partial class frm_studentManagement : Form
     {
         private readonly StudentService studentService = new StudentService();
+        private readonly FacultyService facultyService = new FacultyService();
+        private readonly MajorService majorService = new MajorService();
+        private readonly Utilities utilities = new Utilities();
 
         public frm_studentManagement()
         {
@@ -47,11 +51,37 @@ namespace StudentManagementApp.GUI
             {
                 var listStudents = studentService.GetAll();
                 BindGrid(listStudents);
+                FillClassCombobox();
+                FillFacultyCombobox();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void FillFacultyCombobox()
+        {
+            var listFaculties = facultyService.GetAll();
+            cbb_faculty.Items.Clear();
+            foreach (var item in listFaculties)
+            {
+                cbb_faculty.Items.Add(item.FacultyName);
+            }
+            cbb_faculty.Items.Insert(0, "Chọn khoa");
+            cbb_faculty.SelectedIndex = 0;
+        }
+
+        private void FillClassCombobox()
+        {
+            List<string> listClasses = utilities.GetAllClasses();
+            cbb_class.Items.Clear();
+            foreach (var item in listClasses)
+            {
+                cbb_class.Items.Add(item);
+            }
+            cbb_class.Items.Insert(0, "Chọn lớp");
+            cbb_class.SelectedIndex = 0;
         }
 
         // Hàm binding gridView từ list sinh viên
@@ -81,6 +111,7 @@ namespace StudentManagementApp.GUI
         {
             var listStudents = studentService.GetAll();
             BindGrid(listStudents);
+            FillClassCombobox();
             dgv_student.ClearSelection();
             grb_studentDetail.Visible = false;
         }
@@ -233,6 +264,55 @@ namespace StudentManagementApp.GUI
         {
             frm_courseManagement frm = new frm_courseManagement();
             frm.ShowDialog();
+        }
+
+        private void txt_findByID_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txt_findByID.Text.Trim();
+            BindGrid(studentService.FilterByID(searchText));
+        }
+
+        private void namToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BindGrid(studentService.GetAllMale());
+        }
+
+        private void nữToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BindGrid(studentService.GetAllFemale());
+        }
+
+        private void toolstr_btn_reload_Click(object sender, EventArgs e)
+        {
+            ReloadData();
+        }
+
+        private void cbb_class_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbb_class.SelectedIndex != 0)
+            {
+                // Lấy lớp được chọn từ ComboBox
+                string selectedClass = cbb_class.SelectedItem.ToString();
+
+                // Lọc danh sách học sinh theo lớp được chọn
+                BindGrid(studentService.GetAllByClass(selectedClass));
+            }
+        }
+
+        private void cbb_faculty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbb_faculty.SelectedIndex != 0)
+            {
+                int selectedFacultyID = facultyService.FindIDByName(cbb_faculty.SelectedItem.ToString());
+                var listMajors = majorService.GetAllByFaculty(selectedFacultyID);
+                cbb_major.Items.Clear();
+                foreach (var item in listMajors)
+                {
+                    cbb_major.Items.Add(item.MajorName);
+                }
+                cbb_major.Items.Insert(0, "Chọn chuyên ngành");
+                cbb_major.SelectedIndex = 0;
+            }
         }
     }
 }

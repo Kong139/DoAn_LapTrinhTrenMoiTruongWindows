@@ -59,6 +59,7 @@
     <Compile Include="Services\StatusService.cs" />
     <Compile Include="Services\StudentService.cs" />
     <Compile Include="Services\SubjectService.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="Validators\CourseValidator.cs" />
     <Compile Include="Validators\StudentValidator.cs" />
     <Compile Include="Validators\SubjectValidator.cs" />

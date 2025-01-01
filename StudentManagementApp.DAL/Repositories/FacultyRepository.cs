@@ -13,5 +13,13 @@ namespace StudentManagementApp.DAL.Repositories
                 return context.Faculties.ToList();
             }
         }
+
+        public int FindIDByName(string facultyName)
+        {
+            using (var context = new StudentManagementModel())
+            {
+                return context.Faculties.FirstOrDefault(f => f.FacultyName == facultyName).FacultyID;
+            }
+        }
     }
 }

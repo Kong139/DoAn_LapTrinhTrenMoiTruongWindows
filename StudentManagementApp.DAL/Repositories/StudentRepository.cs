@@ -91,5 +91,25 @@ namespace StudentManagementApp.DAL.Services
                 return context.Students.Any(s => s.StudentID == studentID);
             }
         }
+
+        public List<Student> FilterByID(string searchText)
+        {
+            return GetAll().Where(s => s.StudentID.Contains(searchText)).ToList();
+        }
+
+        public List<Student> GetAllMale()
+        {
+            return GetAll().Where(s => s.Gender == true).ToList();
+        }
+
+        public List<Student> GetAllFemale()
+        {
+            return GetAll().Where(s => s.Gender == false).ToList();
+        }
+
+        public List<Student> GetAllByClass(string className)
+        {
+            return GetAll().Where(s => s.Class == className).ToList();
+        }
     }
 }

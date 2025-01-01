@@ -52,5 +52,25 @@ namespace StudentManagementApp.BLL
         {
             return studentRepository.IsStudentIDExists(studentID);
         }
+
+        public List<Student> FilterByID(string searchText)
+        {
+            return studentRepository.FilterByID(searchText);
+        }
+
+        public List<Student> GetAllMale()
+        {
+            return studentRepository.GetAllMale();
+        }
+
+        public List<Student> GetAllFemale()
+        {
+            return studentRepository.GetAllFemale();
+        }
+
+        public List<Student> GetAllByClass(string className)
+        {
+            return studentRepository.GetAllByClass(className);
+        }
     }
 }

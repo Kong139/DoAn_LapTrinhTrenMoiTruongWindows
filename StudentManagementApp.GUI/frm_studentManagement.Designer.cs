@@ -67,10 +67,10 @@
             this.namToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nữToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.theoLớpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.cbb_class = new System.Windows.Forms.ToolStripComboBox();
             this.theoKhoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripComboBox3 = new System.Windows.Forms.ToolStripComboBox();
+            this.cbb_faculty = new System.Windows.Forms.ToolStripComboBox();
+            this.cbb_major = new System.Windows.Forms.ToolStripComboBox();
             this.theoTrạngTháiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox4 = new System.Windows.Forms.ToolStripComboBox();
             this.theoGPAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,6 +87,7 @@
             this.toolstr_btn_add = new System.Windows.Forms.ToolStripButton();
             this.toolstr_btn_delete = new System.Windows.Forms.ToolStripButton();
             this.toolstr_btn_edit = new System.Windows.Forms.ToolStripButton();
+            this.toolstr_btn_reload = new System.Windows.Forms.ToolStripButton();
             this.grb_studentDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_student)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_student)).BeginInit();
@@ -336,7 +337,7 @@
             // quảnLýKhóaHọcToolStripMenuItem
             // 
             this.quảnLýKhóaHọcToolStripMenuItem.Name = "quảnLýKhóaHọcToolStripMenuItem";
-            this.quảnLýKhóaHọcToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.quảnLýKhóaHọcToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.quảnLýKhóaHọcToolStripMenuItem.Text = "Quản lý học phần";
             this.quảnLýKhóaHọcToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKhóaHọcToolStripMenuItem_Click);
             // 
@@ -421,46 +422,50 @@
             // namToolStripMenuItem
             // 
             this.namToolStripMenuItem.Name = "namToolStripMenuItem";
-            this.namToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
+            this.namToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.namToolStripMenuItem.Text = "Nam";
+            this.namToolStripMenuItem.Click += new System.EventHandler(this.namToolStripMenuItem_Click);
             // 
             // nữToolStripMenuItem
             // 
             this.nữToolStripMenuItem.Name = "nữToolStripMenuItem";
-            this.nữToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
+            this.nữToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.nữToolStripMenuItem.Text = "Nữ";
+            this.nữToolStripMenuItem.Click += new System.EventHandler(this.nữToolStripMenuItem_Click);
             // 
             // theoLớpToolStripMenuItem
             // 
             this.theoLớpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBox1});
+            this.cbb_class});
             this.theoLớpToolStripMenuItem.Name = "theoLớpToolStripMenuItem";
             this.theoLớpToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.theoLớpToolStripMenuItem.Text = "Theo lớp";
             // 
-            // toolStripComboBox1
+            // cbb_class
             // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 28);
+            this.cbb_class.Name = "cbb_class";
+            this.cbb_class.Size = new System.Drawing.Size(121, 28);
+            this.cbb_class.SelectedIndexChanged += new System.EventHandler(this.cbb_class_SelectedIndexChanged);
             // 
             // theoKhoaToolStripMenuItem
             // 
             this.theoKhoaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBox2,
-            this.toolStripComboBox3});
+            this.cbb_faculty,
+            this.cbb_major});
             this.theoKhoaToolStripMenuItem.Name = "theoKhoaToolStripMenuItem";
             this.theoKhoaToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.theoKhoaToolStripMenuItem.Text = "Theo khoa/chuyên ngành";
             // 
-            // toolStripComboBox2
+            // cbb_faculty
             // 
-            this.toolStripComboBox2.Name = "toolStripComboBox2";
-            this.toolStripComboBox2.Size = new System.Drawing.Size(121, 28);
+            this.cbb_faculty.Name = "cbb_faculty";
+            this.cbb_faculty.Size = new System.Drawing.Size(150, 28);
+            this.cbb_faculty.SelectedIndexChanged += new System.EventHandler(this.cbb_faculty_SelectedIndexChanged);
             // 
-            // toolStripComboBox3
+            // cbb_major
             // 
-            this.toolStripComboBox3.Name = "toolStripComboBox3";
-            this.toolStripComboBox3.Size = new System.Drawing.Size(121, 28);
+            this.cbb_major.Name = "cbb_major";
+            this.cbb_major.Size = new System.Drawing.Size(150, 28);
             // 
             // theoTrạngTháiToolStripMenuItem
             // 
@@ -543,7 +548,8 @@
             this.toolStripLabel1,
             this.toolstr_btn_add,
             this.toolstr_btn_delete,
-            this.toolstr_btn_edit});
+            this.toolstr_btn_edit,
+            this.toolstr_btn_reload});
             this.toolStrip1.Location = new System.Drawing.Point(0, 32);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1250, 33);
@@ -556,6 +562,7 @@
             this.txt_findByID.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_findByID.Name = "txt_findByID";
             this.txt_findByID.Size = new System.Drawing.Size(170, 33);
+            this.txt_findByID.TextChanged += new System.EventHandler(this.txt_findByID_TextChanged);
             // 
             // toolStripLabel1
             // 
@@ -590,6 +597,15 @@
             this.toolstr_btn_edit.Size = new System.Drawing.Size(62, 30);
             this.toolstr_btn_edit.Text = "Sửa";
             this.toolstr_btn_edit.Click += new System.EventHandler(this.toolstr_btn_edit_Click);
+            // 
+            // toolstr_btn_reload
+            // 
+            this.toolstr_btn_reload.Image = ((System.Drawing.Image)(resources.GetObject("toolstr_btn_reload.Image")));
+            this.toolstr_btn_reload.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolstr_btn_reload.Name = "toolstr_btn_reload";
+            this.toolstr_btn_reload.Size = new System.Drawing.Size(86, 30);
+            this.toolstr_btn_reload.Text = "Reload";
+            this.toolstr_btn_reload.Click += new System.EventHandler(this.toolstr_btn_reload_Click);
             // 
             // frm_studentManagement
             // 
@@ -635,10 +651,10 @@
         private System.Windows.Forms.ToolStripTextBox txt_findByID;
         private System.Windows.Forms.ToolStripMenuItem tìmKiếmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem theoLớpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private System.Windows.Forms.ToolStripComboBox cbb_class;
         private System.Windows.Forms.ToolStripMenuItem theoKhoaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox2;
-        private System.Windows.Forms.ToolStripComboBox toolStripComboBox3;
+        private System.Windows.Forms.ToolStripComboBox cbb_faculty;
+        private System.Windows.Forms.ToolStripComboBox cbb_major;
         private System.Windows.Forms.ToolStripMenuItem theoTrạngTháiToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox4;
         private System.Windows.Forms.ToolStripButton toolstr_btn_add;
@@ -675,6 +691,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_email;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Adress;
+        private System.Windows.Forms.ToolStripButton toolstr_btn_reload;
     }
 }
 
