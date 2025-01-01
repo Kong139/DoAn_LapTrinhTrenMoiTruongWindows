@@ -14,11 +14,22 @@ namespace StudentManagementApp.DAL.Repositories
             }
         }
 
-        public string GetSubjectID(string subjectName)
+        public string GetSubjectIDByName(string subjectName)
         {
             using (var context = new StudentManagementModel())
             {
                 return context.Subjects.FirstOrDefault(s => s.SubjectName == subjectName).SubjectID;
+            }
+        }
+
+        public List<Teacher> GetAllTeachers(string subjectID)
+        {
+            using (var db = new StudentManagementModel())
+            {
+                return db.Subjects
+                         .Where(s => s.SubjectID == subjectID)
+                         .SelectMany(s => s.Teachers)
+                         .ToList();
             }
         }
     }

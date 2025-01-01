@@ -14,6 +14,7 @@ namespace StudentManagementApp.DAL.Entities
         {
             Courses = new HashSet<Course>();
             Scores = new HashSet<Score>();
+            Teachers = new HashSet<Teacher>();
         }
 
         [StringLength(10)]
@@ -30,5 +31,8 @@ namespace StudentManagementApp.DAL.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Score> Scores { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

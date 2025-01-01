@@ -13,9 +13,14 @@ namespace StudentManagementApp.BLL.Services
             return subjectRepository.GetAll();
         }
 
-        public string GetSubjectID(string subjectName)
+        public string GetSubjectIDByName(string subjectName)
         {
-            return subjectRepository.GetSubjectID(subjectName);
+            return subjectRepository.GetSubjectIDByName(subjectName);
+        }
+
+        public List<Teacher> GetAllTeachers(string subjectID)
+        {
+            return subjectRepository.GetAllTeachers(subjectID);
         }
     }
 }

@@ -77,6 +77,15 @@ CREATE TABLE Teacher (
 );
 GO
 
+-- Tạo bảng teacher_subject
+CREATE TABLE teacher_subject (
+    TeacherID INT NOT NULL,
+    SubjectID VARCHAR(10) NOT NULL,
+    PRIMARY KEY (TeacherID, SubjectID),
+    FOREIGN KEY (TeacherID) REFERENCES Teacher(TeacherID),
+    FOREIGN KEY (SubjectID) REFERENCES Subject(SubjectID)
+);
+
 -- Tạo bảng Semester
 CREATE TABLE Semester (
     SemesterID INT IDENTITY(1,1) PRIMARY KEY,
@@ -187,6 +196,17 @@ VALUES
     (N'Nguyễn Văn Hùng', 1, 1, '0123456789', 'hungnv@university.edu.vn'),
     (N'Trần Thị Hương', 0, 2, '0987654321', 'huongtt@university.edu.vn'),
     (N'Lê Minh Phát', 1, 3, '0123344556', 'phatlm@university.edu.vn');
+GO
+
+-- Thêm dữ liệu vào bảng teacher_subject
+INSERT INTO teacher_subject (TeacherID, SubjectID) 
+VALUES 
+    (1, 'POS106'),
+    (1, 'POS104'),
+    (2, 'POS105'),
+    (2, 'POS107'),
+    (3, 'PSY167'),
+    (3, 'POS106');
 GO
 
 -- Thêm dữ liệu vào bảng Semester

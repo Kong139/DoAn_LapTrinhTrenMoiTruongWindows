@@ -44,11 +44,20 @@ namespace StudentManagementApp.DAL.Services
             }
         }
 
-        public void InsertUpdate(Student s)
+        public void Add(Student student)
         {
             using (var context = new StudentManagementModel())
             {
-                context.Students.AddOrUpdate(s);
+                context.Students.Add(student);
+                context.SaveChanges();
+            }
+        }
+
+        public void Update(Student student)
+        {
+            using (var context = new StudentManagementModel())
+            {
+                context.Students.AddOrUpdate(student);
                 context.SaveChanges();
             }
         }

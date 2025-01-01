@@ -156,7 +156,7 @@ namespace StudentManagementApp.GUI
                 }
 
                 // Thêm sinh viên mới
-                studentService.InsertUpdate(student);
+                studentService.Add(student);
 
                 MessageBox.Show("Thêm sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;

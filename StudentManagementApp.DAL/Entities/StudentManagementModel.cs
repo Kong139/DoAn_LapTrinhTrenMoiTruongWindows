@@ -133,6 +133,11 @@ namespace StudentManagementApp.DAL.Entities
                 .WithRequired(e => e.Subject)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<Subject>()
+                .HasMany(e => e.Teachers)
+                .WithMany(e => e.Subjects)
+                .Map(m => m.ToTable("teacher_subject").MapLeftKey("SubjectID").MapRightKey("TeacherID"));
+
             modelBuilder.Entity<Teacher>()
                 .Property(e => e.Phone)
                 .IsUnicode(false);

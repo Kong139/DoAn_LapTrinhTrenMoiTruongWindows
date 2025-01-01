@@ -28,9 +28,14 @@ namespace StudentManagementApp.BLL
             return studentRepository.FindById(studentId);
         }
 
-        public void InsertUpdate(Student s)
+        public void Add(Student student)
         {
-            studentRepository.InsertUpdate(s);
+            studentRepository.Add(student);
+        }
+
+        public void Update(Student student)
+        {
+            studentRepository.Update(student);
         }
 
         public void Delete(string studentID)

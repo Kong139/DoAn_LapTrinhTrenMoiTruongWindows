@@ -43,9 +43,10 @@
             this.col_currentStudents = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbb_subject = new System.Windows.Forms.ComboBox();
+            this.cbb_teacher = new System.Windows.Forms.ComboBox();
             this.cbb_semester = new System.Windows.Forms.ComboBox();
             this.txt_schedule = new System.Windows.Forms.TextBox();
-            this.txt_teacherName = new System.Windows.Forms.TextBox();
             this.txt_courseID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbb_subject = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_course)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -70,6 +70,7 @@
             this.btn_delete.TabIndex = 10;
             this.btn_delete.Text = "Xóa";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_edit
             // 
@@ -91,6 +92,7 @@
             this.btn_add.TabIndex = 12;
             this.btn_add.Text = "Thêm";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_find
             // 
@@ -101,6 +103,7 @@
             this.btn_find.TabIndex = 9;
             this.btn_find.Text = "Tìm";
             this.btn_find.UseVisualStyleBackColor = true;
+            this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
             // 
             // txt_find
             // 
@@ -213,9 +216,9 @@
             this.groupBox1.Controls.Add(this.btn_edit);
             this.groupBox1.Controls.Add(this.btn_add);
             this.groupBox1.Controls.Add(this.cbb_subject);
+            this.groupBox1.Controls.Add(this.cbb_teacher);
             this.groupBox1.Controls.Add(this.cbb_semester);
             this.groupBox1.Controls.Add(this.txt_schedule);
-            this.groupBox1.Controls.Add(this.txt_teacherName);
             this.groupBox1.Controls.Add(this.txt_courseID);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label7);
@@ -228,6 +231,23 @@
             this.groupBox1.Size = new System.Drawing.Size(1137, 198);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
+            // 
+            // cbb_subject
+            // 
+            this.cbb_subject.FormattingEnabled = true;
+            this.cbb_subject.Location = new System.Drawing.Point(831, 19);
+            this.cbb_subject.Name = "cbb_subject";
+            this.cbb_subject.Size = new System.Drawing.Size(282, 24);
+            this.cbb_subject.TabIndex = 17;
+            this.cbb_subject.SelectedIndexChanged += new System.EventHandler(this.cbb_subject_SelectedIndexChanged);
+            // 
+            // cbb_teacher
+            // 
+            this.cbb_teacher.FormattingEnabled = true;
+            this.cbb_teacher.Location = new System.Drawing.Point(467, 19);
+            this.cbb_teacher.Name = "cbb_teacher";
+            this.cbb_teacher.Size = new System.Drawing.Size(199, 24);
+            this.cbb_teacher.TabIndex = 17;
             // 
             // cbb_semester
             // 
@@ -243,13 +263,6 @@
             this.txt_schedule.Name = "txt_schedule";
             this.txt_schedule.Size = new System.Drawing.Size(233, 22);
             this.txt_schedule.TabIndex = 16;
-            // 
-            // txt_teacherName
-            // 
-            this.txt_teacherName.Location = new System.Drawing.Point(467, 19);
-            this.txt_teacherName.Name = "txt_teacherName";
-            this.txt_teacherName.Size = new System.Drawing.Size(233, 22);
-            this.txt_teacherName.TabIndex = 16;
             // 
             // txt_courseID
             // 
@@ -322,14 +335,6 @@
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             // 
-            // cbb_subject
-            // 
-            this.cbb_subject.FormattingEnabled = true;
-            this.cbb_subject.Location = new System.Drawing.Point(831, 19);
-            this.cbb_subject.Name = "cbb_subject";
-            this.cbb_subject.Size = new System.Drawing.Size(282, 24);
-            this.cbb_subject.TabIndex = 17;
-            // 
             // frm_courseManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -368,7 +373,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbb_semester;
         private System.Windows.Forms.TextBox txt_schedule;
-        private System.Windows.Forms.TextBox txt_teacherName;
         private System.Windows.Forms.TextBox txt_courseID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
@@ -378,5 +382,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbb_subject;
+        private System.Windows.Forms.ComboBox cbb_teacher;
     }
 }

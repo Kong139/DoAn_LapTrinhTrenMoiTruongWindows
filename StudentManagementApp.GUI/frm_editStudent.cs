@@ -200,20 +200,8 @@ namespace StudentManagementApp.GUI
                     return;
                 }
 
-                // Nếu MSSV thay đổi, xóa sinh viên cũ và thêm sinh viên mới
-                if (currentStudentID != student.StudentID)
-                {
-                    // Xóa sinh viên cũ
-                    studentService.Delete(currentStudentID);
-
-                    // Thêm sinh viên mới
-                    studentService.InsertUpdate(student);
-                }
-                else
-                {
-                    // Cập nhật sinh viên hiện tại
-                    studentService.InsertUpdate(student);
-                }
+                // Cập nhật sinh viên hiện tại
+                studentService.Update(student);
 
                 MessageBox.Show("Cập nhật thông tin sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;

@@ -13,6 +13,7 @@ namespace StudentManagementApp.DAL.Entities
         public Teacher()
         {
             Courses = new HashSet<Course>();
+            Subjects = new HashSet<Subject>();
         }
 
         public int TeacherID { get; set; }
@@ -37,5 +38,8 @@ namespace StudentManagementApp.DAL.Entities
         public virtual ICollection<Course> Courses { get; set; }
 
         public virtual Faculty Faculty { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Subject> Subjects { get; set; }
     }
 }
