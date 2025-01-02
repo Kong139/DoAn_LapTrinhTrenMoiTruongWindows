@@ -12,5 +12,10 @@ namespace StudentManagementApp.BLL.Services
         {
             return majorRepository.GetAllByFaculty(facultyID);
         }
+
+        public int FindIDByName(string majorName)
+        {
+            return majorRepository.FindIDByName(majorName);
+        }
     }
 }

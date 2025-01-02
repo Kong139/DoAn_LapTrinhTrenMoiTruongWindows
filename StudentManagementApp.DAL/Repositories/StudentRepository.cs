@@ -111,5 +111,20 @@ namespace StudentManagementApp.DAL.Services
         {
             return GetAll().Where(s => s.Class == className).ToList();
         }
+
+        public List<Student> GetAllByFaculty(int facultyID)
+        {
+            return GetAll().Where(s => s.FacultyID == facultyID).ToList();
+        }
+
+        public List<Student> GetAllByMajor(int majorID)
+        {
+            return GetAll().Where(s => s.MajorID == majorID).ToList();
+        }
+
+        public List<Student> GetAllByStatus(int statusID)
+        {
+            return GetAll().Where(s => s.StatusID == statusID).ToList();
+        }
     }
 }

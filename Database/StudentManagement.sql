@@ -127,7 +127,7 @@ CREATE TABLE Score (
     StudentID VARCHAR(10) NOT NULL,
     SubjectID VARCHAR(10) NOT NULL,
     ScoreCategoryID VARCHAR(2) NOT NULL,
-    ScoreValue FLOAT NOT NULL,
+    ScoreValue FLOAT,
     FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
     FOREIGN KEY (SubjectID) REFERENCES Subject(SubjectID),
     FOREIGN KEY (ScoreCategoryID) REFERENCES ScoreCategory(ScoreCategoryID)

@@ -96,7 +96,7 @@ public static class UIConfig
         }
     }
 
-    // Cấu hình DataGridView (màu nền, màu chữ, kiểu chọn ô, và header)
+    // Cấu hình DataGridView (màu nền, màu chữ, kiểu chọn ô, autosize và header)
     public static void ConfigureDataGridView(DataGridView dgv)
     {
         dgv.BackgroundColor = Color.White;
@@ -106,6 +106,10 @@ public static class UIConfig
         dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245);
         dgv.DefaultCellStyle.Font = new Font("Segoe UI", 10);
         dgv.EnableHeadersVisualStyles = false;
+        dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dgv.MultiSelect = false;
+        dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(70, 130, 180);
         dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
         dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 11, FontStyle.Bold);

@@ -23,7 +23,7 @@ namespace StudentManagementApp.DAL.Entities
         [StringLength(2)]
         public string ScoreCategoryID { get; set; }
 
-        public double ScoreValue { get; set; }
+        public double? ScoreValue { get; set; }
 
         public virtual ScoreCategory ScoreCategory { get; set; }
 

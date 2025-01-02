@@ -69,12 +69,13 @@
     <Compile Include="Repositories\CourseRepository.cs" />
     <Compile Include="Repositories\FacultyRepository.cs" />
     <Compile Include="Repositories\MajorRepository.cs" />
+    <Compile Include="Repositories\ScoreCategoryRepository.cs" />
+    <Compile Include="Repositories\ScoreRepository.cs" />
     <Compile Include="Repositories\SemesterRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
     <Compile Include="Repositories\SubjectRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

@@ -371,6 +371,7 @@
             this.Controls.Add(this.btn_deletePicture);
             this.Controls.Add(this.btn_uploadPicture);
             this.Controls.Add(this.pic_student);
+            this.MaximizeBox = false;
             this.Name = "frm_editStudent";
             this.Text = "Sửa thông tin sinh viên";
             this.Load += new System.EventHandler(this.frm_editStudent_Load);

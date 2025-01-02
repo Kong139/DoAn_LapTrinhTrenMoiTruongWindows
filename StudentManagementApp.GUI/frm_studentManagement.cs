@@ -13,6 +13,7 @@ namespace StudentManagementApp.GUI
         private readonly StudentService studentService = new StudentService();
         private readonly FacultyService facultyService = new FacultyService();
         private readonly MajorService majorService = new MajorService();
+        private readonly StatusService statusService = new StatusService();
         private readonly Utilities utilities = new Utilities();
 
         public frm_studentManagement()
@@ -49,10 +50,10 @@ namespace StudentManagementApp.GUI
         {
             try
             {
-                var listStudents = studentService.GetAll();
-                BindGrid(listStudents);
+                ReloadData();
                 FillClassCombobox();
                 FillFacultyCombobox();
+                FillStatusCombobox();
             }
             catch (Exception ex)
             {
@@ -60,28 +61,40 @@ namespace StudentManagementApp.GUI
             }
         }
 
+        private void FillStatusCombobox()
+        {
+            var listStatus = statusService.GetAll();
+            menu_cbb_status.Items.Clear();
+            foreach (var item in listStatus)
+            {
+                menu_cbb_status.Items.Add(item.StatusName);
+            }
+            menu_cbb_status.Items.Insert(0, "Chọn trạng thái");
+            menu_cbb_status.SelectedIndex = 0;
+        }
+
         private void FillFacultyCombobox()
         {
             var listFaculties = facultyService.GetAll();
-            cbb_faculty.Items.Clear();
+            menu_cbb_faculty.Items.Clear();
             foreach (var item in listFaculties)
             {
-                cbb_faculty.Items.Add(item.FacultyName);
+                menu_cbb_faculty.Items.Add(item.FacultyName);
             }
-            cbb_faculty.Items.Insert(0, "Chọn khoa");
-            cbb_faculty.SelectedIndex = 0;
+            menu_cbb_faculty.Items.Insert(0, "Chọn khoa");
+            menu_cbb_faculty.SelectedIndex = 0;
         }
 
         private void FillClassCombobox()
         {
             List<string> listClasses = utilities.GetAllClasses();
-            cbb_class.Items.Clear();
+            menu_cbb_class.Items.Clear();
             foreach (var item in listClasses)
             {
-                cbb_class.Items.Add(item);
+                menu_cbb_class.Items.Add(item);
             }
-            cbb_class.Items.Insert(0, "Chọn lớp");
-            cbb_class.SelectedIndex = 0;
+            menu_cbb_class.Items.Insert(0, "Chọn lớp");
+            menu_cbb_class.SelectedIndex = 0;
         }
 
         // Hàm binding gridView từ list sinh viên
@@ -112,6 +125,8 @@ namespace StudentManagementApp.GUI
             var listStudents = studentService.GetAll();
             BindGrid(listStudents);
             FillClassCombobox();
+            FillFacultyCombobox();
+            FillStatusCombobox();
             dgv_student.ClearSelection();
             grb_studentDetail.Visible = false;
         }
@@ -272,12 +287,12 @@ namespace StudentManagementApp.GUI
             BindGrid(studentService.FilterByID(searchText));
         }
 
-        private void namToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menu_filterByGender_nam_Click(object sender, EventArgs e)
         {
             BindGrid(studentService.GetAllMale());
         }
 
-        private void nữToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menu_filterByGender_nu_Click(object sender, EventArgs e)
         {
             BindGrid(studentService.GetAllFemale());
         }
@@ -287,31 +302,71 @@ namespace StudentManagementApp.GUI
             ReloadData();
         }
 
-        private void cbb_class_SelectedIndexChanged(object sender, EventArgs e)
+        private void menu_cbb_class_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbb_class.SelectedIndex != 0)
+            if (menu_cbb_class.SelectedIndex != 0)
             {
                 // Lấy lớp được chọn từ ComboBox
-                string selectedClass = cbb_class.SelectedItem.ToString();
+                string selectedClass = menu_cbb_class.SelectedItem.ToString();
 
                 // Lọc danh sách học sinh theo lớp được chọn
                 BindGrid(studentService.GetAllByClass(selectedClass));
             }
         }
 
-        private void cbb_faculty_SelectedIndexChanged(object sender, EventArgs e)
+        private void menu_cbb_faculty_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbb_faculty.SelectedIndex != 0)
+            if (menu_cbb_faculty.SelectedIndex != 0)
             {
-                int selectedFacultyID = facultyService.FindIDByName(cbb_faculty.SelectedItem.ToString());
+                // Bind các chuyên ngành của khoa được chọn vào ComboBox Major
+                int selectedFacultyID = facultyService.FindIDByName(menu_cbb_faculty.SelectedItem.ToString());
                 var listMajors = majorService.GetAllByFaculty(selectedFacultyID);
-                cbb_major.Items.Clear();
+                menu_cbb_major.Items.Clear();
                 foreach (var item in listMajors)
                 {
-                    cbb_major.Items.Add(item.MajorName);
+                    menu_cbb_major.Items.Add(item.MajorName);
                 }
-                cbb_major.Items.Insert(0, "Chọn chuyên ngành");
-                cbb_major.SelectedIndex = 0;
+                menu_cbb_major.Items.Insert(0, "Chọn chuyên ngành");
+                menu_cbb_major.SelectedIndex = 0;
+
+                // Lọc danh sách học sinh theo khoa được chọn
+                BindGrid(studentService.GetAllByFaculty(facultyService.FindIDByName(menu_cbb_faculty.SelectedItem.ToString())));
+            }
+        }
+
+        private void menu_cbb_major_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (menu_cbb_major.SelectedIndex != 0)
+            {
+                // Lọc danh sách học sinh theo chuyên ngành được chọn
+                BindGrid(studentService.GetAllByMajor(majorService.FindIDByName(menu_cbb_major.SelectedItem.ToString())));
+            }
+        }
+
+        private void menu_cbb_status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (menu_cbb_status.SelectedIndex != 0)
+            {
+                // Lọc danh sách học sinh theo trạng thái được chọn
+                BindGrid(studentService.GetAllByStatus(statusService.FindIDByName(menu_cbb_status.SelectedItem.ToString())));
+            }
+        }
+
+        private void btn_scoreManagement_Click(object sender, EventArgs e)
+        {
+            if (dgv_student.SelectedRows.Count > 0)
+            {
+                string studentID = dgv_student.SelectedRows[0].Cells[0].Value.ToString();
+                frm_scoreManagement frm = new frm_scoreManagement(studentID);
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    ReloadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên cần quản lý điểm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

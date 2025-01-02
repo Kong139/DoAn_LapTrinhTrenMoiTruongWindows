@@ -1,4 +1,6 @@
-﻿namespace StudentManagementApp.BLL.Validators
+﻿using StudentManagementApp.DAL.Entities;
+
+namespace StudentManagementApp.BLL.Validators
 {
     public class SubjectValidator
     {
@@ -26,12 +28,12 @@
             }
             return null;
         }
-        public static string ValidateSubject(string subjectID, string subjectName, int credit)
+        public static string ValidateSubject(Subject subject)
         {
             var validationMessages = new[]
             {
-                ValidateSubjectName(subjectName),
-                ValidateCredit(credit)
+                ValidateSubjectName(subject.SubjectName),
+                ValidateCredit(subject.CreditHours)
             };
             foreach (var message in validationMessages)
             {

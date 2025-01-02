@@ -72,5 +72,20 @@ namespace StudentManagementApp.BLL
         {
             return studentRepository.GetAllByClass(className);
         }
+
+        public List<Student> GetAllByFaculty(int facultyID)
+        {
+            return studentRepository.GetAllByFaculty(facultyID);
+        }
+
+        public List<Student> GetAllByMajor(int majorID)
+        {
+            return studentRepository.GetAllByMajor(majorID);
+        }
+
+        public List<Student> GetAllByStatus(int statusID)
+        {
+            return studentRepository.GetAllByStatus(statusID);
+        }
     }
 }

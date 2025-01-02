@@ -13,5 +13,13 @@ namespace StudentManagementApp.DAL.Repositories
                 return context.Majors.Where(m => m.FacultyID == facultyID).ToList();
             }
         }
+
+        public int FindIDByName(string majorName)
+        {
+            using (var context = new StudentManagementModel())
+            {
+                return context.Majors.FirstOrDefault(m => m.MajorName == majorName).MajorID;
+            }
+        }
     }
 }
