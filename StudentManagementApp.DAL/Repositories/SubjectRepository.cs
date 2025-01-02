@@ -40,5 +40,13 @@ namespace StudentManagementApp.DAL.Repositories
                          .ToList();
             }
         }
+
+        public bool IsSubjectExist(string subjectID)
+        {
+            using (var context = new StudentManagementModel())
+            {
+                return context.Subjects.Any(s => s.SubjectID == subjectID);
+            }
+        }
     }
 }

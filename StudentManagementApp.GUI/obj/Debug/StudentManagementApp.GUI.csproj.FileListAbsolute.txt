@@ -23,3 +23,5 @@ C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên
 C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.frm_addStudent.resources
 C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.frm_courseManagement.resources
 C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.frm_scoreManagement.resources
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.frm_courseRegistration.resources
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.GUI\obj\Debug\StudentManagementApp.GUI.frm_chooseCourse.resources

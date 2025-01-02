@@ -42,6 +42,15 @@ namespace StudentManagementApp.DAL.Repositories
             }
         }
 
+        public void Add(Score score)
+        {
+            using (var db = new StudentManagementModel())
+            {
+                db.Scores.Add(score);
+                db.SaveChanges();
+            }
+        }
+
         public void Update(Score score)
         {
             using (var db = new StudentManagementModel())

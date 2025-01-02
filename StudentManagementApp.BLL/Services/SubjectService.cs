@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using StudentManagementApp.DAL.Entities;
 using StudentManagementApp.DAL.Repositories;
 
@@ -26,6 +27,11 @@ namespace StudentManagementApp.BLL.Services
         public List<Teacher> GetAllTeachers(string subjectID)
         {
             return subjectRepository.GetAllTeachers(subjectID);
+        }
+
+        public bool IsSubjectExist(string subjectID)
+        {
+            return subjectRepository.IsSubjectExist(subjectID);
         }
     }
 }

@@ -13,6 +13,11 @@ namespace StudentManagementApp.BLL.Services
             return courseRepository.GetAll();
         }
 
+        public List<Course> GetAllBySubjectID(string subjectID)
+        {
+            return courseRepository.GetAllBySubjectID(subjectID);
+        }
+
         public Course GetByID(string id)
         {
             return courseRepository.GetByID(id);

@@ -55,6 +55,7 @@
     <Compile Include="Services\FacultyService.cs" />
     <Compile Include="Services\MajorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\RegistrationService.cs" />
     <Compile Include="Services\ScoreCategoryService.cs" />
     <Compile Include="Services\ScoreService.cs" />
     <Compile Include="Services\SemesterService.cs" />

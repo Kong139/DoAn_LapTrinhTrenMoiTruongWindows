@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_studentManagement));
             this.grb_studentDetail = new System.Windows.Forms.GroupBox();
-            this.btn_subjectRegistration = new System.Windows.Forms.Button();
+            this.btn_courseRegistration = new System.Windows.Forms.Button();
             this.btn_scoreManagement = new System.Windows.Forms.Button();
             this.btn_editStudent = new System.Windows.Forms.Button();
             this.lbl_studentName = new System.Windows.Forms.Label();
@@ -96,7 +96,7 @@
             // 
             this.grb_studentDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.grb_studentDetail.Controls.Add(this.btn_subjectRegistration);
+            this.grb_studentDetail.Controls.Add(this.btn_courseRegistration);
             this.grb_studentDetail.Controls.Add(this.btn_scoreManagement);
             this.grb_studentDetail.Controls.Add(this.btn_editStudent);
             this.grb_studentDetail.Controls.Add(this.lbl_studentName);
@@ -109,14 +109,15 @@
             this.grb_studentDetail.TabStop = false;
             this.grb_studentDetail.Visible = false;
             // 
-            // btn_subjectRegistration
+            // btn_courseRegistration
             // 
-            this.btn_subjectRegistration.Location = new System.Drawing.Point(29, 427);
-            this.btn_subjectRegistration.Name = "btn_subjectRegistration";
-            this.btn_subjectRegistration.Size = new System.Drawing.Size(150, 33);
-            this.btn_subjectRegistration.TabIndex = 13;
-            this.btn_subjectRegistration.Text = "Đăng ký học phần";
-            this.btn_subjectRegistration.UseVisualStyleBackColor = true;
+            this.btn_courseRegistration.Location = new System.Drawing.Point(29, 427);
+            this.btn_courseRegistration.Name = "btn_courseRegistration";
+            this.btn_courseRegistration.Size = new System.Drawing.Size(150, 33);
+            this.btn_courseRegistration.TabIndex = 13;
+            this.btn_courseRegistration.Text = "Đăng ký học phần";
+            this.btn_courseRegistration.UseVisualStyleBackColor = true;
+            this.btn_courseRegistration.Click += new System.EventHandler(this.btn_courseRegistration_Click);
             // 
             // btn_scoreManagement
             // 
@@ -305,7 +306,7 @@
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1262, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1262, 30);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -320,7 +321,7 @@
             // xuấtFileExcelToolStripMenuItem
             // 
             this.xuấtFileExcelToolStripMenuItem.Name = "xuấtFileExcelToolStripMenuItem";
-            this.xuấtFileExcelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xuấtFileExcelToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
             this.xuấtFileExcelToolStripMenuItem.Text = "Xuất file excel";
             // 
             // chứcNăngToolStripMenuItem
@@ -335,14 +336,14 @@
             // quảnLýKhóaHọcToolStripMenuItem
             // 
             this.quảnLýKhóaHọcToolStripMenuItem.Name = "quảnLýKhóaHọcToolStripMenuItem";
-            this.quảnLýKhóaHọcToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.quảnLýKhóaHọcToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýKhóaHọcToolStripMenuItem.Text = "Quản lý học phần";
             this.quảnLýKhóaHọcToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKhóaHọcToolStripMenuItem_Click);
             // 
             // quảnLýToolStripMenuItem
             // 
             this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýToolStripMenuItem.Text = "Quản lý học kỳ";
             // 
             // chỉnhSửaToolStripMenuItem
@@ -646,7 +647,7 @@
         private System.Windows.Forms.ToolStripMenuItem trungBình2025ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem yếu1020ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kém010ToolStripMenuItem;
-        private System.Windows.Forms.Button btn_subjectRegistration;
+        private System.Windows.Forms.Button btn_courseRegistration;
         private System.Windows.Forms.ToolStripMenuItem theoGiớiTínhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menu_filterByGender_nam;
         private System.Windows.Forms.ToolStripMenuItem menu_filterByGender_nu;

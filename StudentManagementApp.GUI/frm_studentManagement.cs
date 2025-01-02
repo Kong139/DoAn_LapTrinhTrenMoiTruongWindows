@@ -35,7 +35,7 @@ namespace StudentManagementApp.GUI
             // Chỉnh sửa giao diện cho Button
             UIConfig.ConfigureButton(btn_editStudent);
             UIConfig.ConfigureButton(btn_scoreManagement);
-            UIConfig.ConfigureButton(btn_subjectRegistration);
+            UIConfig.ConfigureButton(btn_courseRegistration);
 
             // Chỉnh sửa giao diện cho Label
             UIConfig.ConfigureLabel(lbl_studentID);
@@ -367,6 +367,24 @@ namespace StudentManagementApp.GUI
             else
             {
                 MessageBox.Show("Vui lòng chọn sinh viên cần quản lý điểm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btn_courseRegistration_Click(object sender, EventArgs e)
+        {
+            if (dgv_student.SelectedRows.Count > 0)
+            {
+                string studentID = dgv_student.SelectedRows[0].Cells[0].Value.ToString();
+                frm_courseRegistration frm = new frm_courseRegistration(studentID);
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    ReloadData();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên cần đăng ký học phần!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

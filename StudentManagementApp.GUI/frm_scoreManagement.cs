@@ -43,6 +43,12 @@ namespace StudentManagementApp.GUI
         {
             var listScoreCategories = scoreCategoryService.GetAll();
             listScoreCategories.Insert(0, new ScoreCategory { ScoreCategoryID = "", ScoreCategoryName = "Chọn cột điểm" });
+
+            // Đảo lại vị trí của cột giữa kỳ và cuối kỳ vì mặc định nó sắp xếp theo chữ cái đầu (CC, CK, GK)
+            ScoreCategory s1 = listScoreCategories[2];
+            listScoreCategories[2] = listScoreCategories[3];
+            listScoreCategories[3] = s1;
+
             cbb_scoreCategory.DataSource = listScoreCategories;
             cbb_scoreCategory.DisplayMember = "ScoreCategoryName";
             cbb_scoreCategory.ValueMember = "ScoreCategoryID";

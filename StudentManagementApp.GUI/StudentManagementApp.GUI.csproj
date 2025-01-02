@@ -74,6 +74,12 @@
     <Compile Include="frm_editStudent.Designer.cs">
       <DependentUpon>frm_editStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_chooseCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_chooseCourse.Designer.cs">
+      <DependentUpon>frm_chooseCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_scoreManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     </Compile>
     <Compile Include="frm_studentManagement.Designer.cs">
       <DependentUpon>frm_studentManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_courseRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_courseRegistration.Designer.cs">
+      <DependentUpon>frm_courseRegistration.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,11 +110,17 @@
     <EmbeddedResource Include="frm_editStudent.resx">
       <DependentUpon>frm_editStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_chooseCourse.resx">
+      <DependentUpon>frm_chooseCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_scoreManagement.resx">
       <DependentUpon>frm_scoreManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_studentManagement.resx">
       <DependentUpon>frm_studentManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_courseRegistration.resx">
+      <DependentUpon>frm_courseRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

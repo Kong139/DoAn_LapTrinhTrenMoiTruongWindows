@@ -18,6 +18,11 @@ namespace StudentManagementApp.BLL.Services
             return scoreRepository.GetScore(studentID, subjectID, scoreCategoryID);
         }
 
+        public void Add(Score score)
+        {
+            scoreRepository.Add(score);
+        }
+
         public void Update(Score score)
         {
             scoreRepository.Update(score);

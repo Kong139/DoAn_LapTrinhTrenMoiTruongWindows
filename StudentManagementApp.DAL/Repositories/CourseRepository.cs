@@ -19,6 +19,19 @@ namespace StudentManagementApp.DAL.Repositories
             }
         }
 
+        public List<Course> GetAllBySubjectID(string subjectID)
+        {
+            using (var context = new StudentManagementModel())
+            {
+                return context.Courses
+                              .Include(s => s.Subject)
+                              .Include(s => s.Semester)
+                              .Include(s => s.Teacher)
+                              .Where(s => s.SubjectID == subjectID)
+                              .ToList();
+            }
+        }
+
         public Course GetByID(string id)
         {
             using (var context = new StudentManagementModel())
