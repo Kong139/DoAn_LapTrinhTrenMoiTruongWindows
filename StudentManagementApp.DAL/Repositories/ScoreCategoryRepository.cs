@@ -17,6 +17,14 @@ namespace StudentManagementApp.DAL.Repositories
             }
         }
 
+        public ScoreCategory GetByID(string id)
+        {
+            using (var db = new StudentManagementModel())
+            {
+                return db.ScoreCategories.Find(id);
+            }
+        }
+
         public string GetIDByName(string name)
         {
             using (var db = new StudentManagementModel())

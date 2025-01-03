@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using StudentManagementApp.DAL.Entities;
+using StudentManagementApp.DAL.Repositories;
 using StudentManagementApp.DAL.Services;
 
 namespace StudentManagementApp.BLL
@@ -7,6 +8,8 @@ namespace StudentManagementApp.BLL
     public class StudentService
     {
         private readonly StudentRepository studentRepository = new StudentRepository();
+        private readonly ScoreRepository scoreRepository = new ScoreRepository();
+        private readonly RegistrationRepository registrationRepository = new RegistrationRepository();
 
         public List<Student> GetAll()
         {
@@ -40,6 +43,13 @@ namespace StudentManagementApp.BLL
 
         public void Delete(string studentID)
         {
+            // Xóa tất cả các điểm của sinh viên
+            scoreRepository.DeleteByStudentID(studentID);
+
+            // Xóa tất cả các đăng ký môn học của sinh viên
+            registrationRepository.DeleteByStudentID(studentID);
+
+            // Xóa sinh viên
             studentRepository.Delete(studentID);
         }
 

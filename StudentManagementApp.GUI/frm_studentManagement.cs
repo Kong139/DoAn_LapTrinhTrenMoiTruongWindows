@@ -358,6 +358,7 @@ namespace StudentManagementApp.GUI
             {
                 string studentID = dgv_student.SelectedRows[0].Cells[0].Value.ToString();
                 frm_scoreManagement frm = new frm_scoreManagement(studentID);
+                frm.GPAUpdated += ScoreManagementForm_GPAUpdated;
                 frm.ShowDialog();
                 if (frm.DialogResult == DialogResult.OK)
                 {
@@ -386,6 +387,12 @@ namespace StudentManagementApp.GUI
             {
                 MessageBox.Show("Vui lòng chọn sinh viên cần đăng ký học phần!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void ScoreManagementForm_GPAUpdated(object sender, EventArgs e)
+        {
+            // Reload DataGridView
+            ReloadData();
         }
     }
 }

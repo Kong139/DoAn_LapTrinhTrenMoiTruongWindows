@@ -32,5 +32,10 @@ namespace StudentManagementApp.BLL.Services
         {
             return scoreRepository.FilterBySubjectID(scores, subjectID);
         }
+
+        public void DeleteByStudentID(string studentID)
+        {
+            scoreRepository.DeleteByStudentID(studentID);
+        }
     }
 }

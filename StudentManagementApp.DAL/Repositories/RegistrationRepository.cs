@@ -7,6 +7,8 @@ namespace StudentManagementApp.DAL.Repositories
 {
     public class RegistrationRepository
     {
+        private readonly CourseRepository courseRepository = new CourseRepository();
+
         public List<Registration> GetAllByStudentID(string studentID)
         {
             using (var db = new StudentManagementModel())
@@ -26,6 +28,27 @@ namespace StudentManagementApp.DAL.Repositories
             using (var db = new StudentManagementModel())
             {
                 db.Registrations.Add(registration);
+                db.SaveChanges();
+            }
+        }
+
+        public void DeleteByStudentID(string studentID)
+        {
+            using (var db = new StudentManagementModel())
+            {
+                var registrations = db.Registrations.Where(r => r.StudentID == studentID);
+                foreach (var registration in registrations)
+                {
+                    // Giảm số lượng sinh viên hiện tại trong khóa học
+                    var course = courseRepository.GetByID(registration.CourseID);
+                    if (course != null)
+                    {
+                        course.CurrentStudents--;
+                        courseRepository.Update(course);
+                    }
+                }
+                // Xóa tất cả các đăng ký của sinh viên
+                db.Registrations.RemoveRange(registrations);
                 db.SaveChanges();
             }
         }

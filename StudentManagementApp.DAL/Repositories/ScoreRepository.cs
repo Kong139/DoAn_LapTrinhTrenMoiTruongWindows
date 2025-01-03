@@ -59,5 +59,15 @@ namespace StudentManagementApp.DAL.Repositories
                 db.SaveChanges();
             }
         }
+
+        public void DeleteByStudentID(string studentID)
+        {
+            using (var db = new StudentManagementModel())
+            {
+                var scores = db.Scores.Where(s => s.StudentID == studentID);
+                db.Scores.RemoveRange(scores);
+                db.SaveChanges();
+            }
+        }
     }
 }

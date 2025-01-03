@@ -10,6 +10,7 @@ namespace StudentManagementApp.GUI
 {
     public partial class frm_scoreManagement : Form
     {
+        public event EventHandler GPAUpdated;
         private readonly StudentService studentService = new StudentService();
         private readonly SubjectService subjectService = new SubjectService();
         private readonly ScoreService scoreService = new ScoreService();
@@ -98,7 +99,14 @@ namespace StudentManagementApp.GUI
             if (isRegistered)
             {
                 var score = scoreService.GetScore(studentID, txt_subjectID.Text, cbb_scoreCategory.SelectedValue.ToString());
-                score.ScoreValue = double.Parse(txt_scoreValue.Text);
+                if (txt_scoreValue.Text == "")
+                {
+                    score.ScoreValue = null;
+                }
+                else
+                {
+                    score.ScoreValue = double.Parse(txt_scoreValue.Text);
+                }
 
                 // Kiểm tra giá trị nhập
                 var validationMessage = ScoreValidator.ValidateScore(score);
@@ -112,12 +120,65 @@ namespace StudentManagementApp.GUI
                 scoreService.Update(score);
                 MessageBox.Show("Cập nhật điểm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BindGrid(scoreService.GetAllByStudentID(studentID));
+
+                // Cập nhật GPA
+                UpdateStudentGPA(studentID);
+
+                // Kích hoạt sự kiện GPAUpdated
+                GPAUpdated?.Invoke(this, EventArgs.Empty);
             }
             else
             {
                 MessageBox.Show("Sinh viên chưa đăng kí môn học này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void UpdateStudentGPA(string studentID)
+        {
+            // Lấy tất cả các điểm của sinh viên theo ID
+            var scores = scoreService.GetAllByStudentID(studentID);
+
+            double totalWeightedScore = 0;
+            double totalWeightedCreditHours = 0;
+
+            // Duyệt qua từng điểm của sinh viên
+            foreach (var score in scores)
+            {
+                // Bỏ qua các điểm có giá trị null
+                if (!score.ScoreValue.HasValue)
+                {
+                    continue;
+                }
+
+                // Lấy thông tin môn học dựa vào SubjectID
+                var subject = subjectService.GetByID(score.SubjectID);
+
+                // Lấy thông tin loại điểm dựa vào ScoreCategoryID
+                var scoreCategory = scoreCategoryService.GetByID(score.ScoreCategoryID);
+
+                // Tính tổng điểm có trọng số (ScoreValue * CreditHours * Weight)
+                totalWeightedScore += score.ScoreValue.Value * subject.CreditHours * scoreCategory.Weight;
+
+                // Tính tổng số tín chỉ có trọng số (CreditHours * Weight)
+                totalWeightedCreditHours += subject.CreditHours * scoreCategory.Weight;
+            }
+
+            // Tính GPA bằng cách chia tổng điểm có trọng số cho tổng số tín chỉ có trọng số
+            double gpa = totalWeightedCreditHours == 0 ? 0 : totalWeightedScore / totalWeightedCreditHours;
+
+            // Làm tròn GPA đến 2 chữ số thập phân
+            gpa = Math.Round(gpa, 2);
+
+            // Lấy thông tin sinh viên
+            var student = studentService.FindById(studentID);
+
+            // Cập nhật GPA cho sinh viên
+            student.GPA = gpa;
+
+            // Lưu thay đổi vào cơ sở dữ liệu
+            studentService.Update(student);
+        }
+
 
         private void txt_findSubjectID_TextChanged(object sender, EventArgs e)
         {

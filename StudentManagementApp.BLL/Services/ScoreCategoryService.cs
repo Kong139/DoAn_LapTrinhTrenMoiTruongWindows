@@ -12,6 +12,11 @@ namespace StudentManagementApp.BLL.Services
             return scoreCategoryRepository.GetAll();
         }
 
+        public ScoreCategory GetByID(string id)
+        {
+            return scoreCategoryRepository.GetByID(id);
+        }
+
         public string GetIDByName(string name)
         {
             return scoreCategoryRepository.GetIDByName(name);

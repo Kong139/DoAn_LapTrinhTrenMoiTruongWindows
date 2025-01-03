@@ -8,10 +8,6 @@ namespace StudentManagementApp.BLL.Validators
     {
         public static string ValidateScoreValue(double? scoreValue)
         {
-            if (scoreValue == null)
-            {
-                return "Điểm không được để trống";
-            }
             if (scoreValue < 0 || scoreValue > 10)
             {
                 return "Điểm phải nằm trong khoảng từ 0 đến 10";
