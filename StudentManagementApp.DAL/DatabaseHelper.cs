@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Windows.Forms;
+using System.Diagnostics;
+using System.Management;
+using System.ServiceProcess;
 
 namespace StudentManagementApp.DAL
 {
@@ -30,23 +32,26 @@ namespace StudentManagementApp.DAL
             }
             catch (Exception ex)
             {
-                // Hiển thị thông báo lỗi bằng MessageBox
-                string errorMessage = "Đã xảy ra lỗi khi sao lưu cơ sở dữ liệu." + Environment.NewLine +
-                                      "Vui lòng đảm bảo rằng tài khoản dịch vụ SQL Server có quyền ghi vào thư mục sao lưu." + Environment.NewLine +
-                                      "Để kiểm tra tài khoản nào đang chạy SQL Server và cấp quyền, hãy làm theo các bước sau:" + Environment.NewLine +
-                                      "1. Mở 'Services' bằng cách nhấn Win + R, gõ 'services.msc' và nhấn Enter." + Environment.NewLine +
-                                      "2. Tìm dịch vụ SQL Server (ví dụ: 'SQL Server (MSSQLSERVER)' hoặc 'SQL Server (InstanceName)')." + Environment.NewLine +
-                                      "3. Nhấp chuột phải vào dịch vụ và chọn 'Properties'." + Environment.NewLine +
-                                      "4. Chuyển đến tab 'Log On' để xem tài khoản đang chạy dịch vụ." + Environment.NewLine +
-                                      "5. Mở File Explorer và điều hướng đến thư mục sao lưu." + Environment.NewLine +
-                                      "6. Nhấp chuột phải vào thư mục và chọn 'Properties'." + Environment.NewLine +
-                                      "7. Chuyển đến tab 'Security' và nhấp vào 'Edit'." + Environment.NewLine +
-                                      "8. Nhấp vào 'Add', nhập tên tài khoản dịch vụ (ví dụ: 'NT SERVICE\\MSSQLSERVER'), và nhấp vào 'Check Names'." + Environment.NewLine +
-                                      "9. Cấp quyền 'Write' cho tài khoản và nhấp vào 'OK'.";
+                // Tự động yêu cầu quyền
+                string directoryPath = System.IO.Path.GetDirectoryName(backupFilePath);
+                GrantSqlServerServiceAccountWritePermission(directoryPath);
 
-                MessageBox.Show(errorMessage, "Lỗi sao lưu cơ sở dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                throw new Exception("Đã xảy ra lỗi khi sao lưu cơ sở dữ liệu.", ex);
+                // Thử lại sao lưu sau khi cấp quyền
+                try
+                {
+                    string backupCommand = $"BACKUP DATABASE [StudentManagement] TO DISK = '{backupFilePath}' WITH INIT";
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        SqlCommand command = new SqlCommand(backupCommand, connection);
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+                catch (Exception retryEx)
+                {
+                    throw new Exception("Đã xảy ra lỗi khi sao lưu cơ sở dữ liệu.", retryEx);
+                }
             }
         }
 
@@ -93,6 +98,56 @@ namespace StudentManagementApp.DAL
             {
                 throw new Exception("An error occurred while restoring the database.", ex);
             }
+        }
+
+        public void RunPowerShellScript(string scriptText)
+        {
+            ProcessStartInfo psi = new ProcessStartInfo
+            {
+                FileName = "powershell.exe",
+                Arguments = $"-NoProfile -ExecutionPolicy Bypass -Command \"{scriptText}\"",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+
+            using (Process process = Process.Start(psi))
+            {
+                process.WaitForExit();
+                string output = process.StandardOutput.ReadToEnd();
+                string error = process.StandardError.ReadToEnd();
+
+                if (process.ExitCode != 0)
+                {
+                    throw new Exception($"PowerShell script failed with error: {error}");
+                }
+            }
+        }
+
+        public string GetSqlServerServiceAccount()
+        {
+            string serviceName = "MSSQLSERVER"; // Thay đổi nếu bạn sử dụng một instance cụ thể
+            using (ServiceController sc = new ServiceController(serviceName))
+            {
+                var wmiService = new ManagementObject($"Win32_Service.Name='{sc.ServiceName}'");
+                wmiService.Get();
+                return wmiService["StartName"].ToString();
+            }
+        }
+
+        public void GrantSqlServerServiceAccountWritePermission(string directoryPath)
+        {
+            string serviceAccount = GetSqlServerServiceAccount();
+            string scriptText = $@"
+                $acl = Get-Acl '{directoryPath}'
+                $permission = '{serviceAccount}', 'Write', 'ContainerInherit, ObjectInherit', 'None', 'Allow'
+                $accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule $permission
+                $acl.SetAccessRule($accessRule)
+                Set-Acl '{directoryPath}' $acl
+            ";
+
+            RunPowerShellScript(scriptText);
         }
     }
 }

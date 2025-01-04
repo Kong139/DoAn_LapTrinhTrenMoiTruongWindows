@@ -86,6 +86,9 @@
             this.toolstr_btn_delete = new System.Windows.Forms.ToolStripButton();
             this.toolstr_btn_edit = new System.Windows.Forms.ToolStripButton();
             this.toolstr_btn_reload = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.grb_studentDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_student)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_student)).BeginInit();
@@ -324,21 +327,21 @@
             // xuấtFileExcelToolStripMenuItem
             // 
             this.xuấtFileExcelToolStripMenuItem.Name = "xuấtFileExcelToolStripMenuItem";
-            this.xuấtFileExcelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xuấtFileExcelToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
             this.xuấtFileExcelToolStripMenuItem.Text = "Xuất file excel";
             this.xuấtFileExcelToolStripMenuItem.Click += new System.EventHandler(this.xuấtFileExcelToolStripMenuItem_Click);
             // 
             // menu_backup
             // 
             this.menu_backup.Name = "menu_backup";
-            this.menu_backup.Size = new System.Drawing.Size(224, 26);
+            this.menu_backup.Size = new System.Drawing.Size(185, 26);
             this.menu_backup.Text = "Backup";
             this.menu_backup.Click += new System.EventHandler(this.menu_backup_Click);
             // 
             // menu_restore
             // 
             this.menu_restore.Name = "menu_restore";
-            this.menu_restore.Size = new System.Drawing.Size(224, 26);
+            this.menu_restore.Size = new System.Drawing.Size(185, 26);
             this.menu_restore.Text = "Restore data";
             this.menu_restore.Click += new System.EventHandler(this.menu_restore_Click);
             // 
@@ -545,8 +548,11 @@
             this.txt_findByID,
             this.toolStripLabel1,
             this.toolstr_btn_add,
-            this.toolstr_btn_delete,
+            this.toolStripSeparator2,
             this.toolstr_btn_edit,
+            this.toolStripSeparator3,
+            this.toolstr_btn_delete,
+            this.toolStripSeparator4,
             this.toolstr_btn_reload});
             this.toolStrip1.Location = new System.Drawing.Point(0, 32);
             this.toolStrip1.Name = "toolStrip1";
@@ -604,6 +610,21 @@
             this.toolstr_btn_reload.Size = new System.Drawing.Size(86, 30);
             this.toolstr_btn_reload.Text = "Reload";
             this.toolstr_btn_reload.Click += new System.EventHandler(this.toolstr_btn_reload_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 33);
             // 
             // frm_studentManagement
             // 
@@ -688,6 +709,9 @@
         private System.Windows.Forms.ToolStripButton toolstr_btn_reload;
         private System.Windows.Forms.ToolStripMenuItem menu_backup;
         private System.Windows.Forms.ToolStripMenuItem menu_restore;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 
