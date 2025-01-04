@@ -1,0 +1,12 @@
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\bin\Release\StudentManagementApp.DAL.dll.config
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\bin\Release\StudentManagementApp.DAL.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\bin\Release\StudentManagementApp.DAL.pdb
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\bin\Release\EntityFramework.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\bin\Release\EntityFramework.xml
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\obj\Release\StudentManagementApp.DAL.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\obj\Release\StudentManagementApp.DAL.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\obj\Release\StudentM.A5632114.Up2Date
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\obj\Release\StudentManagementApp.DAL.dll
+C:\Users\User\OneDrive\Dokumenty\Visual Studio 2022\Đồ án Lập trình trên môi trường Windows\Student Management App\StudentManagementApp.DAL\obj\Release\StudentManagementApp.DAL.pdb

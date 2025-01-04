@@ -83,12 +83,12 @@
             this.txt_findByID = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolstr_btn_add = new System.Windows.Forms.ToolStripButton();
-            this.toolstr_btn_delete = new System.Windows.Forms.ToolStripButton();
-            this.toolstr_btn_edit = new System.Windows.Forms.ToolStripButton();
-            this.toolstr_btn_reload = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolstr_btn_edit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolstr_btn_delete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolstr_btn_reload = new System.Windows.Forms.ToolStripButton();
             this.grb_studentDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_student)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_student)).BeginInit();
@@ -388,6 +388,8 @@
             // menu_deleteStudent
             // 
             this.menu_deleteStudent.Name = "menu_deleteStudent";
+            this.menu_deleteStudent.ShortcutKeyDisplayString = "Delete";
+            this.menu_deleteStudent.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.menu_deleteStudent.Size = new System.Drawing.Size(242, 26);
             this.menu_deleteStudent.Text = "Xóa sinh viên";
             this.menu_deleteStudent.Click += new System.EventHandler(this.menu_deleteStudent_Click);
@@ -584,14 +586,10 @@
             this.toolstr_btn_add.Text = "Thêm";
             this.toolstr_btn_add.Click += new System.EventHandler(this.toolstr_btn_add_Click);
             // 
-            // toolstr_btn_delete
+            // toolStripSeparator2
             // 
-            this.toolstr_btn_delete.Image = ((System.Drawing.Image)(resources.GetObject("toolstr_btn_delete.Image")));
-            this.toolstr_btn_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolstr_btn_delete.Name = "toolstr_btn_delete";
-            this.toolstr_btn_delete.Size = new System.Drawing.Size(63, 30);
-            this.toolstr_btn_delete.Text = "Xóa";
-            this.toolstr_btn_delete.Click += new System.EventHandler(this.toolstr_btn_delete_Click);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
             // 
             // toolstr_btn_edit
             // 
@@ -602,6 +600,25 @@
             this.toolstr_btn_edit.Text = "Sửa";
             this.toolstr_btn_edit.Click += new System.EventHandler(this.toolstr_btn_edit_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
+            // 
+            // toolstr_btn_delete
+            // 
+            this.toolstr_btn_delete.Image = ((System.Drawing.Image)(resources.GetObject("toolstr_btn_delete.Image")));
+            this.toolstr_btn_delete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolstr_btn_delete.Name = "toolstr_btn_delete";
+            this.toolstr_btn_delete.Size = new System.Drawing.Size(63, 30);
+            this.toolstr_btn_delete.Text = "Xóa";
+            this.toolstr_btn_delete.Click += new System.EventHandler(this.toolstr_btn_delete_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 33);
+            // 
             // toolstr_btn_reload
             // 
             this.toolstr_btn_reload.Image = ((System.Drawing.Image)(resources.GetObject("toolstr_btn_reload.Image")));
@@ -610,21 +627,6 @@
             this.toolstr_btn_reload.Size = new System.Drawing.Size(86, 30);
             this.toolstr_btn_reload.Text = "Reload";
             this.toolstr_btn_reload.Click += new System.EventHandler(this.toolstr_btn_reload_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 33);
             // 
             // frm_studentManagement
             // 
