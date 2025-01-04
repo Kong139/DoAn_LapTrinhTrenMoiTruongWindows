@@ -4,7 +4,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using StudentManagementApp.DAL.Entities;
 
-namespace StudentManagementApp.DAL.Services
+namespace StudentManagementApp.DAL.Repositories
 {
     public class StudentRepository
     {

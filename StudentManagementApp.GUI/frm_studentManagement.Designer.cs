@@ -52,9 +52,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtFileExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_backup = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_restore = new System.Windows.Forms.ToolStripMenuItem();
             this.chứcNăngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýKhóaHọcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chỉnhSửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_addStudent = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_editStudent = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,12 +73,12 @@
             this.theoTrạngTháiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_cbb_status = new System.Windows.Forms.ToolStripComboBox();
             this.theoGPAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dưới25ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.giỏi3236ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.khá2532ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trungBình2025ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.yếu1020ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kém010ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_filterByGPAxx = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_filterByGPAgioi = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_filterByGPAkha = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_filterByGPAtb = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_filterByGPAyeu = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_filterByGPAkem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.txt_findByID = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -306,14 +307,16 @@
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1262, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1262, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xuấtFileExcelToolStripMenuItem});
+            this.xuấtFileExcelToolStripMenuItem,
+            this.menu_backup,
+            this.menu_restore});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
             this.fileToolStripMenuItem.Text = "File";
@@ -321,14 +324,28 @@
             // xuấtFileExcelToolStripMenuItem
             // 
             this.xuấtFileExcelToolStripMenuItem.Name = "xuấtFileExcelToolStripMenuItem";
-            this.xuấtFileExcelToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.xuấtFileExcelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.xuấtFileExcelToolStripMenuItem.Text = "Xuất file excel";
+            this.xuấtFileExcelToolStripMenuItem.Click += new System.EventHandler(this.xuấtFileExcelToolStripMenuItem_Click);
+            // 
+            // menu_backup
+            // 
+            this.menu_backup.Name = "menu_backup";
+            this.menu_backup.Size = new System.Drawing.Size(224, 26);
+            this.menu_backup.Text = "Backup";
+            this.menu_backup.Click += new System.EventHandler(this.menu_backup_Click);
+            // 
+            // menu_restore
+            // 
+            this.menu_restore.Name = "menu_restore";
+            this.menu_restore.Size = new System.Drawing.Size(224, 26);
+            this.menu_restore.Text = "Restore data";
+            this.menu_restore.Click += new System.EventHandler(this.menu_restore_Click);
             // 
             // chứcNăngToolStripMenuItem
             // 
             this.chứcNăngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quảnLýKhóaHọcToolStripMenuItem,
-            this.quảnLýToolStripMenuItem});
+            this.quảnLýKhóaHọcToolStripMenuItem});
             this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
             this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.chứcNăngToolStripMenuItem.Text = "Chức năng";
@@ -336,15 +353,9 @@
             // quảnLýKhóaHọcToolStripMenuItem
             // 
             this.quảnLýKhóaHọcToolStripMenuItem.Name = "quảnLýKhóaHọcToolStripMenuItem";
-            this.quảnLýKhóaHọcToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.quảnLýKhóaHọcToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
             this.quảnLýKhóaHọcToolStripMenuItem.Text = "Quản lý học phần";
             this.quảnLýKhóaHọcToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKhóaHọcToolStripMenuItem_Click);
-            // 
-            // quảnLýToolStripMenuItem
-            // 
-            this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
-            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.quảnLýToolStripMenuItem.Text = "Quản lý học kỳ";
             // 
             // chỉnhSửaToolStripMenuItem
             // 
@@ -470,51 +481,57 @@
             // theoGPAToolStripMenuItem
             // 
             this.theoGPAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dưới25ToolStripMenuItem,
-            this.giỏi3236ToolStripMenuItem,
-            this.khá2532ToolStripMenuItem,
-            this.trungBình2025ToolStripMenuItem,
-            this.yếu1020ToolStripMenuItem,
-            this.kém010ToolStripMenuItem});
+            this.menu_filterByGPAxx,
+            this.menu_filterByGPAgioi,
+            this.menu_filterByGPAkha,
+            this.menu_filterByGPAtb,
+            this.menu_filterByGPAyeu,
+            this.menu_filterByGPAkem});
             this.theoGPAToolStripMenuItem.Name = "theoGPAToolStripMenuItem";
             this.theoGPAToolStripMenuItem.Size = new System.Drawing.Size(258, 26);
             this.theoGPAToolStripMenuItem.Text = "Theo GPA";
             // 
-            // dưới25ToolStripMenuItem
+            // menu_filterByGPAxx
             // 
-            this.dưới25ToolStripMenuItem.Name = "dưới25ToolStripMenuItem";
-            this.dưới25ToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.dưới25ToolStripMenuItem.Text = "Xuất sắc (3.6 - 4.0)";
+            this.menu_filterByGPAxx.Name = "menu_filterByGPAxx";
+            this.menu_filterByGPAxx.Size = new System.Drawing.Size(228, 26);
+            this.menu_filterByGPAxx.Text = "Xuất sắc (3.6 - 4.0)";
+            this.menu_filterByGPAxx.Click += new System.EventHandler(this.menu_filterByGPAxx_Click);
             // 
-            // giỏi3236ToolStripMenuItem
+            // menu_filterByGPAgioi
             // 
-            this.giỏi3236ToolStripMenuItem.Name = "giỏi3236ToolStripMenuItem";
-            this.giỏi3236ToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.giỏi3236ToolStripMenuItem.Text = "Giỏi (3.2 - 3.6)";
+            this.menu_filterByGPAgioi.Name = "menu_filterByGPAgioi";
+            this.menu_filterByGPAgioi.Size = new System.Drawing.Size(228, 26);
+            this.menu_filterByGPAgioi.Text = "Giỏi (3.2 - 3.6)";
+            this.menu_filterByGPAgioi.Click += new System.EventHandler(this.menu_filterByGPAgioi_Click);
             // 
-            // khá2532ToolStripMenuItem
+            // menu_filterByGPAkha
             // 
-            this.khá2532ToolStripMenuItem.Name = "khá2532ToolStripMenuItem";
-            this.khá2532ToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.khá2532ToolStripMenuItem.Text = "Khá (2.5 - 3.2)";
+            this.menu_filterByGPAkha.Name = "menu_filterByGPAkha";
+            this.menu_filterByGPAkha.Size = new System.Drawing.Size(228, 26);
+            this.menu_filterByGPAkha.Text = "Khá (2.5 - 3.2)";
+            this.menu_filterByGPAkha.Click += new System.EventHandler(this.menu_filterByGPAkha_Click);
             // 
-            // trungBình2025ToolStripMenuItem
+            // menu_filterByGPAtb
             // 
-            this.trungBình2025ToolStripMenuItem.Name = "trungBình2025ToolStripMenuItem";
-            this.trungBình2025ToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.trungBình2025ToolStripMenuItem.Text = "Trung bình (2.0 - 2.5)";
+            this.menu_filterByGPAtb.Name = "menu_filterByGPAtb";
+            this.menu_filterByGPAtb.Size = new System.Drawing.Size(228, 26);
+            this.menu_filterByGPAtb.Text = "Trung bình (2.0 - 2.5)";
+            this.menu_filterByGPAtb.Click += new System.EventHandler(this.menu_filterByGPAtb_Click);
             // 
-            // yếu1020ToolStripMenuItem
+            // menu_filterByGPAyeu
             // 
-            this.yếu1020ToolStripMenuItem.Name = "yếu1020ToolStripMenuItem";
-            this.yếu1020ToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.yếu1020ToolStripMenuItem.Text = "Yếu (1.0 - 2.0)";
+            this.menu_filterByGPAyeu.Name = "menu_filterByGPAyeu";
+            this.menu_filterByGPAyeu.Size = new System.Drawing.Size(228, 26);
+            this.menu_filterByGPAyeu.Text = "Yếu (1.0 - 2.0)";
+            this.menu_filterByGPAyeu.Click += new System.EventHandler(this.menu_filterByGPAyeu_Click);
             // 
-            // kém010ToolStripMenuItem
+            // menu_filterByGPAkem
             // 
-            this.kém010ToolStripMenuItem.Name = "kém010ToolStripMenuItem";
-            this.kém010ToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.kém010ToolStripMenuItem.Text = "Kém (0 - 1.0)";
+            this.menu_filterByGPAkem.Name = "menu_filterByGPAkem";
+            this.menu_filterByGPAkem.Size = new System.Drawing.Size(228, 26);
+            this.menu_filterByGPAkem.Text = "Kém (0 - 1.0)";
+            this.menu_filterByGPAkem.Click += new System.EventHandler(this.menu_filterByGPAkem_Click);
             // 
             // toolStrip1
             // 
@@ -641,12 +658,12 @@
         private System.Windows.Forms.ToolStripButton toolstr_btn_delete;
         private System.Windows.Forms.ToolStripButton toolstr_btn_edit;
         private System.Windows.Forms.ToolStripMenuItem theoGPAToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dưới25ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem giỏi3236ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem khá2532ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem trungBình2025ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem yếu1020ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kém010ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menu_filterByGPAxx;
+        private System.Windows.Forms.ToolStripMenuItem menu_filterByGPAgioi;
+        private System.Windows.Forms.ToolStripMenuItem menu_filterByGPAkha;
+        private System.Windows.Forms.ToolStripMenuItem menu_filterByGPAtb;
+        private System.Windows.Forms.ToolStripMenuItem menu_filterByGPAyeu;
+        private System.Windows.Forms.ToolStripMenuItem menu_filterByGPAkem;
         private System.Windows.Forms.Button btn_courseRegistration;
         private System.Windows.Forms.ToolStripMenuItem theoGiớiTínhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menu_filterByGender_nam;
@@ -655,7 +672,6 @@
         private System.Windows.Forms.ToolStripMenuItem xuấtFileExcelToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem quảnLýKhóaHọcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýToolStripMenuItem;
         private System.Windows.Forms.Label lbl_studentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_studentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_studentName;
@@ -670,6 +686,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Adress;
         private System.Windows.Forms.ToolStripButton toolstr_btn_reload;
+        private System.Windows.Forms.ToolStripMenuItem menu_backup;
+        private System.Windows.Forms.ToolStripMenuItem menu_restore;
     }
 }
 

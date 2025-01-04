@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using StudentManagementApp.DAL.Entities;
 using StudentManagementApp.DAL.Repositories;
-using StudentManagementApp.DAL.Services;
 
-namespace StudentManagementApp.BLL
+namespace StudentManagementApp.BLL.Services
 {
     public class StudentService
     {

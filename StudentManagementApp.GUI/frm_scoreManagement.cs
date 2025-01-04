@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using StudentManagementApp.BLL;
 using StudentManagementApp.BLL.Services;
@@ -138,8 +139,9 @@ namespace StudentManagementApp.GUI
             // Lấy tất cả các điểm của sinh viên theo ID
             var scores = scoreService.GetAllByStudentID(studentID);
 
-            double totalWeightedScore = 0;
-            double totalWeightedCreditHours = 0;
+            // Dictionary để lưu điểm tổng của từng môn
+            var subjectTotalScores = new Dictionary<string, double>();
+            var subjectTotalWeights = new Dictionary<string, double>();
 
             // Duyệt qua từng điểm của sinh viên
             foreach (var score in scores)
@@ -150,17 +152,57 @@ namespace StudentManagementApp.GUI
                     continue;
                 }
 
-                // Lấy thông tin môn học dựa vào SubjectID
-                var subject = subjectService.GetByID(score.SubjectID);
-
                 // Lấy thông tin loại điểm dựa vào ScoreCategoryID
                 var scoreCategory = scoreCategoryService.GetByID(score.ScoreCategoryID);
 
-                // Tính tổng điểm có trọng số (ScoreValue * CreditHours * Weight)
-                totalWeightedScore += score.ScoreValue.Value * subject.CreditHours * scoreCategory.Weight;
+                // Tính trọng số của điểm (ScoreValue * Weight)
+                double weightedScore = score.ScoreValue.Value * scoreCategory.Weight;
 
-                // Tính tổng số tín chỉ có trọng số (CreditHours * Weight)
-                totalWeightedCreditHours += subject.CreditHours * scoreCategory.Weight;
+                // Kiểm tra nếu môn học đã có trong từ điển chưa
+                if (!subjectTotalScores.ContainsKey(score.SubjectID))
+                {
+                    subjectTotalScores[score.SubjectID] = 0;
+                    subjectTotalWeights[score.SubjectID] = 0;
+                }
+
+                // Cộng dồn điểm và trọng số vào từ điển
+                subjectTotalScores[score.SubjectID] += weightedScore;
+                subjectTotalWeights[score.SubjectID] += scoreCategory.Weight;
+            }
+
+            double totalWeightedScore = 0;
+            double totalWeightedCreditHours = 0;
+
+            // Tính điểm tổng của từng môn (trung bình các điểm thành phần)
+            foreach (var subjectID in subjectTotalScores.Keys)
+            {
+                // Lấy thông tin môn học dựa vào SubjectID
+                var subject = subjectService.GetByID(subjectID);
+
+                // Kiểm tra nếu môn học có bất kỳ cột điểm nào bị null
+                var subjectScores = scores.Where(s => s.SubjectID == subjectID).ToList();
+                if (subjectScores.Any(s => !s.ScoreValue.HasValue))
+                {
+                    continue;
+                }
+
+                // Tính điểm trung bình của môn học
+                double averageScore = subjectTotalScores[subjectID] / subjectTotalWeights[subjectID];
+
+                // Quy đổi điểm từ thang điểm 10 sang thang điểm 4
+                double gpaScore = ConvertToGPA(averageScore);
+
+                // Bỏ qua các điểm F
+                if (gpaScore == 0)
+                {
+                    continue;
+                }
+
+                // Tính tổng điểm có trọng số (GPA Score * CreditHours)
+                totalWeightedScore += gpaScore * subject.CreditHours;
+
+                // Tính tổng số tín chỉ có trọng số (CreditHours)
+                totalWeightedCreditHours += subject.CreditHours;
             }
 
             // Tính GPA bằng cách chia tổng điểm có trọng số cho tổng số tín chỉ có trọng số
@@ -177,6 +219,20 @@ namespace StudentManagementApp.GUI
 
             // Lưu thay đổi vào cơ sở dữ liệu
             studentService.Update(student);
+        }
+
+        private double ConvertToGPA(double score)
+        {
+            if (score >= 8.5)
+                return 4.0;
+            else if (score >= 7.0)
+                return 3.0;
+            else if (score >= 5.5)
+                return 2.0;
+            else if (score >= 4.0)
+                return 1.0;
+            else
+                return 0.0;
         }
 
 

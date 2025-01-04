@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using StudentManagementApp.BLL;
 using StudentManagementApp.BLL.Services;
+using StudentManagementApp.DAL;
 using StudentManagementApp.DAL.Entities;
 
 namespace StudentManagementApp.GUI
@@ -393,6 +396,162 @@ namespace StudentManagementApp.GUI
         {
             // Reload DataGridView
             ReloadData();
+        }
+
+        private void menu_filterByGPAxx_Click(object sender, EventArgs e)
+        {
+            var listStudents = studentService.GetAll();
+            var listStudentsFiltered = new List<Student>();
+            foreach (var item in listStudents)
+            {
+                if (item.GPA >= 3.6 && item.GPA <= 4.0)
+                {
+                    listStudentsFiltered.Add(item);
+                }
+            }
+            BindGrid(listStudentsFiltered);
+        }
+
+        private void menu_filterByGPAgioi_Click(object sender, EventArgs e)
+        {
+            var listStudents = studentService.GetAll();
+            var listStudentsFiltered = new List<Student>();
+            foreach (var item in listStudents)
+            {
+                if (item.GPA >= 3.2 && item.GPA < 3.6)
+                {
+                    listStudentsFiltered.Add(item);
+                }
+            }
+            BindGrid(listStudentsFiltered);
+        }
+
+        private void menu_filterByGPAkha_Click(object sender, EventArgs e)
+        {
+            var listStudents = studentService.GetAll();
+            var listStudentsFiltered = new List<Student>();
+            foreach (var item in listStudents)
+            {
+                if (item.GPA >= 2.5 && item.GPA < 3.2)
+                {
+                    listStudentsFiltered.Add(item);
+                }
+            }
+            BindGrid(listStudentsFiltered);
+        }
+
+        private void menu_filterByGPAtb_Click(object sender, EventArgs e)
+        {
+            var listStudents = studentService.GetAll();
+            var listStudentsFiltered = new List<Student>();
+            foreach (var item in listStudents)
+            {
+                if (item.GPA >= 2 && item.GPA < 2.5)
+                {
+                    listStudentsFiltered.Add(item);
+                }
+            }
+            BindGrid(listStudentsFiltered);
+        }
+
+        private void menu_filterByGPAyeu_Click(object sender, EventArgs e)
+        {
+            var listStudents = studentService.GetAll();
+            var listStudentsFiltered = new List<Student>();
+            foreach (var item in listStudents)
+            {
+                if (item.GPA >= 1 && item.GPA < 2)
+                {
+                    listStudentsFiltered.Add(item);
+                }
+            }
+            BindGrid(listStudentsFiltered);
+        }
+
+        private void menu_filterByGPAkem_Click(object sender, EventArgs e)
+        {
+            var listStudents = studentService.GetAll();
+            var listStudentsFiltered = new List<Student>();
+            foreach (var item in listStudents)
+            {
+                if (item.GPA > 0 && item.GPA < 1)
+                {
+                    listStudentsFiltered.Add(item);
+                }
+            }
+            BindGrid(listStudentsFiltered);
+        }
+
+        private void xuấtFileExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create and configure SaveFileDialog
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "Save an Excel File";
+                saveFileDialog.FileName = "exported_data.xlsx";
+
+                // Show the dialog and get the result
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Get the file path from the dialog
+                    string filePath = saveFileDialog.FileName;
+
+                    // Call the ExportToExcel method
+                    utilities.ExportToExcel(dgv_student, filePath);
+
+                    // Inform the user that the export was successful
+                    MessageBox.Show("Data exported successfully!", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void menu_backup_Click(object sender, EventArgs e)
+        {
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string databaseDirectory = Path.Combine(baseDirectory, @"..\..\..\Database");
+
+            // Create and configure SaveFileDialog
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Backup Files|*.bak";
+                saveFileDialog.Title = "Save Backup File";
+                saveFileDialog.InitialDirectory = Path.GetFullPath(databaseDirectory);
+                saveFileDialog.FileName = "student_database_backup.bak";
+
+                // Show the dialog and get the result
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Get the file path from the dialog
+                    string backupFilePath = saveFileDialog.FileName;
+
+                    // Call the BackupDatabase method
+                    utilities.BackupDatabase(backupFilePath);
+                    MessageBox.Show("Backup completed successfully!", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void menu_restore_Click(object sender, EventArgs e)
+        {
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string databaseDirectory = Path.Combine(baseDirectory, @"..\..\..\Database");
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Backup Files|*.bak";
+                openFileDialog.Title = "Open Backup File";
+                openFileDialog.InitialDirectory = Path.GetFullPath(databaseDirectory);
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string backupFilePath = openFileDialog.FileName;
+                    utilities.RestoreDatabase(backupFilePath);
+                    MessageBox.Show("Restore completed successfully!", "Restore", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("The application will now restart to apply the changes.", "Restart", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Application.Restart();
+                }
+            }
         }
     }
 }
