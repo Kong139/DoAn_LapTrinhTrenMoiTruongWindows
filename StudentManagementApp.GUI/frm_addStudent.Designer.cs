@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_addStudent));
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_done = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -371,6 +372,7 @@
             this.Controls.Add(this.btn_deletePicture);
             this.Controls.Add(this.btn_uploadPicture);
             this.Controls.Add(this.pic_student);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frm_addStudent";
             this.Text = "Thêm sinh viên";

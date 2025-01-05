@@ -262,19 +262,27 @@ namespace StudentManagementApp.GUI
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            if (dgv_course.SelectedRows.Count > 0)
+            try
             {
-                string courseID = dgv_course.SelectedRows[0].Cells[0].Value.ToString();
-                if (MessageBox.Show($"Bạn có chắc chắn muốn xóa học phần {courseID} không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dgv_course.SelectedRows.Count > 0)
                 {
-                    courseService.Delete(courseID);
-                    ReloadData();
+                    string courseID = dgv_course.SelectedRows[0].Cells[0].Value.ToString();
+                    if (MessageBox.Show($"Bạn có chắc chắn muốn xóa học phần {courseID} không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        courseService.Delete(courseID);
+                        ReloadData();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn học phần cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Vui lòng chọn học phần cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Có sinh viên đã đăng ký học phần này, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
         }
 
         private void btn_find_Click(object sender, EventArgs e)

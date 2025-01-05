@@ -310,7 +310,7 @@
             this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1262, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1262, 30);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -321,27 +321,27 @@
             this.menu_backup,
             this.menu_restore});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // xuấtFileExcelToolStripMenuItem
             // 
             this.xuấtFileExcelToolStripMenuItem.Name = "xuấtFileExcelToolStripMenuItem";
-            this.xuấtFileExcelToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.xuấtFileExcelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.xuấtFileExcelToolStripMenuItem.Text = "Xuất file excel";
             this.xuấtFileExcelToolStripMenuItem.Click += new System.EventHandler(this.xuấtFileExcelToolStripMenuItem_Click);
             // 
             // menu_backup
             // 
             this.menu_backup.Name = "menu_backup";
-            this.menu_backup.Size = new System.Drawing.Size(185, 26);
+            this.menu_backup.Size = new System.Drawing.Size(224, 26);
             this.menu_backup.Text = "Backup";
             this.menu_backup.Click += new System.EventHandler(this.menu_backup_Click);
             // 
             // menu_restore
             // 
             this.menu_restore.Name = "menu_restore";
-            this.menu_restore.Size = new System.Drawing.Size(185, 26);
+            this.menu_restore.Size = new System.Drawing.Size(224, 26);
             this.menu_restore.Text = "Restore data";
             this.menu_restore.Click += new System.EventHandler(this.menu_restore_Click);
             // 
@@ -350,13 +350,13 @@
             this.chứcNăngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quảnLýKhóaHọcToolStripMenuItem});
             this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
-            this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
+            this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
             this.chứcNăngToolStripMenuItem.Text = "Chức năng";
             // 
             // quảnLýKhóaHọcToolStripMenuItem
             // 
             this.quảnLýKhóaHọcToolStripMenuItem.Name = "quảnLýKhóaHọcToolStripMenuItem";
-            this.quảnLýKhóaHọcToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.quảnLýKhóaHọcToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quảnLýKhóaHọcToolStripMenuItem.Text = "Quản lý học phần";
             this.quảnLýKhóaHọcToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKhóaHọcToolStripMenuItem_Click);
             // 
@@ -368,7 +368,7 @@
             this.menu_deleteStudent,
             this.toolStripSeparator1});
             this.chỉnhSửaToolStripMenuItem.Name = "chỉnhSửaToolStripMenuItem";
-            this.chỉnhSửaToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.chỉnhSửaToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.chỉnhSửaToolStripMenuItem.Text = "Thao tác";
             // 
             // menu_addStudent
@@ -408,7 +408,7 @@
             this.theoTrạngTháiToolStripMenuItem,
             this.theoGPAToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.viewToolStripMenuItem.Text = "Lọc";
             // 
             // theoGiớiTínhToolStripMenuItem
@@ -637,6 +637,7 @@
             this.Controls.Add(this.grb_studentDetail);
             this.Controls.Add(this.dgv_student);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_studentManagement";
             this.Text = "Quản lý sinh viên";
             this.Load += new System.EventHandler(this.frm_studentManagement_Load);

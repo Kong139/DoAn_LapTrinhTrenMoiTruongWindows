@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_chooseCourse));
             this.btn_register = new System.Windows.Forms.Button();
             this.dgv_course = new System.Windows.Forms.DataGridView();
             this.col_courseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -136,6 +137,7 @@
             this.ClientSize = new System.Drawing.Size(1080, 325);
             this.Controls.Add(this.dgv_course);
             this.Controls.Add(this.btn_register);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_chooseCourse";
             this.Text = "Chọn học phần";
             this.Load += new System.EventHandler(this.frm_chooseCourse_Load);

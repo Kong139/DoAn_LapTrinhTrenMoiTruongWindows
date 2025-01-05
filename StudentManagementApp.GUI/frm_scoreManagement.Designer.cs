@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_scoreManagement));
             this.dgv_scoreManagement = new System.Windows.Forms.DataGridView();
-            this.btn_editScoreValue = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.col_subjectID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_subjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_scoreCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_scoreValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
+            this.btn_editScoreValue = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbb_scoreCategory = new System.Windows.Forms.ComboBox();
+            this.txt_scoreValue = new System.Windows.Forms.TextBox();
             this.txt_subjectName = new System.Windows.Forms.TextBox();
             this.txt_subjectID = new System.Windows.Forms.TextBox();
-            this.txt_scoreValue = new System.Windows.Forms.TextBox();
-            this.cbb_scoreCategory = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lbl_studentName = new System.Windows.Forms.Label();
             this.lbl_studentID = new System.Windows.Forms.Label();
             this.lbl_findSubjectID = new System.Windows.Forms.Label();
@@ -71,59 +72,6 @@
             this.dgv_scoreManagement.Size = new System.Drawing.Size(969, 424);
             this.dgv_scoreManagement.TabIndex = 0;
             this.dgv_scoreManagement.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_scoreManagement_CellClick);
-            // 
-            // btn_editScoreValue
-            // 
-            this.btn_editScoreValue.Location = new System.Drawing.Point(554, 8);
-            this.btn_editScoreValue.Name = "btn_editScoreValue";
-            this.btn_editScoreValue.Size = new System.Drawing.Size(122, 43);
-            this.btn_editScoreValue.TabIndex = 1;
-            this.btn_editScoreValue.Text = "Sửa điểm";
-            this.btn_editScoreValue.UseVisualStyleBackColor = true;
-            this.btn_editScoreValue.Click += new System.EventHandler(this.btn_editScoreValue_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.cbb_scoreCategory);
-            this.groupBox1.Controls.Add(this.txt_scoreValue);
-            this.groupBox1.Controls.Add(this.txt_subjectName);
-            this.groupBox1.Controls.Add(this.txt_subjectID);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(519, 142);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Mã môn:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên môn học:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Cột điểm:";
             // 
             // col_subjectID
             // 
@@ -157,14 +105,46 @@
             this.col_scoreValue.ReadOnly = true;
             this.col_scoreValue.Width = 125;
             // 
-            // label4
+            // btn_editScoreValue
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(363, 104);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Điểm:";
+            this.btn_editScoreValue.Location = new System.Drawing.Point(554, 8);
+            this.btn_editScoreValue.Name = "btn_editScoreValue";
+            this.btn_editScoreValue.Size = new System.Drawing.Size(122, 43);
+            this.btn_editScoreValue.TabIndex = 1;
+            this.btn_editScoreValue.Text = "Sửa điểm";
+            this.btn_editScoreValue.UseVisualStyleBackColor = true;
+            this.btn_editScoreValue.Click += new System.EventHandler(this.btn_editScoreValue_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbb_scoreCategory);
+            this.groupBox1.Controls.Add(this.txt_scoreValue);
+            this.groupBox1.Controls.Add(this.txt_subjectName);
+            this.groupBox1.Controls.Add(this.txt_subjectID);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(12, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(519, 142);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            // 
+            // cbb_scoreCategory
+            // 
+            this.cbb_scoreCategory.FormattingEnabled = true;
+            this.cbb_scoreCategory.Location = new System.Drawing.Point(139, 101);
+            this.cbb_scoreCategory.Name = "cbb_scoreCategory";
+            this.cbb_scoreCategory.Size = new System.Drawing.Size(134, 24);
+            this.cbb_scoreCategory.TabIndex = 3;
+            // 
+            // txt_scoreValue
+            // 
+            this.txt_scoreValue.Location = new System.Drawing.Point(429, 101);
+            this.txt_scoreValue.Name = "txt_scoreValue";
+            this.txt_scoreValue.Size = new System.Drawing.Size(75, 22);
+            this.txt_scoreValue.TabIndex = 2;
             // 
             // txt_subjectName
             // 
@@ -181,20 +161,41 @@
             this.txt_subjectID.TabIndex = 1;
             this.txt_subjectID.TextChanged += new System.EventHandler(this.txt_subjectID_TextChanged);
             // 
-            // txt_scoreValue
+            // label4
             // 
-            this.txt_scoreValue.Location = new System.Drawing.Point(429, 101);
-            this.txt_scoreValue.Name = "txt_scoreValue";
-            this.txt_scoreValue.Size = new System.Drawing.Size(75, 22);
-            this.txt_scoreValue.TabIndex = 2;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(363, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 16);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Điểm:";
             // 
-            // cbb_scoreCategory
+            // label3
             // 
-            this.cbb_scoreCategory.FormattingEnabled = true;
-            this.cbb_scoreCategory.Location = new System.Drawing.Point(139, 101);
-            this.cbb_scoreCategory.Name = "cbb_scoreCategory";
-            this.cbb_scoreCategory.Size = new System.Drawing.Size(134, 24);
-            this.cbb_scoreCategory.TabIndex = 3;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Cột điểm:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tên môn học:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Mã môn:";
             // 
             // lbl_studentName
             // 
@@ -252,6 +253,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_editScoreValue);
             this.Controls.Add(this.dgv_scoreManagement);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frm_scoreManagement";
             this.Text = "Quản lý điểm";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_editStudent));
             this.pic_student = new System.Windows.Forms.PictureBox();
             this.lbl_studentID = new System.Windows.Forms.Label();
             this.lbl_studentName = new System.Windows.Forms.Label();
@@ -371,6 +372,7 @@
             this.Controls.Add(this.btn_deletePicture);
             this.Controls.Add(this.btn_uploadPicture);
             this.Controls.Add(this.pic_student);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frm_editStudent";
             this.Text = "Sửa thông tin sinh viên";
