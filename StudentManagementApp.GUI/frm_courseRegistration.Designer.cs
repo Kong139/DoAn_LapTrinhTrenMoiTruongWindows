@@ -181,6 +181,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgv_courseRegistered);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frm_courseRegistration";
             this.Text = "Đăng ký học phần";
             this.Load += new System.EventHandler(this.frm_courseRegistration_Load);
